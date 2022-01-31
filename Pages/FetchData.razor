@@ -1,15 +1,15 @@
 ﻿@page "/fetchdata"
 
-<PageTitle>Weather forecast</PageTitle>
+<PageTitle>Digimon List</PageTitle>
 
-@using DigitalNetWeb.Data
-@inject WeatherForecastService ForecastService
+@using DigitalNetWeb.Data.Models;
+@using DigitalNetWeb.Data.ModelService;
 
-<h1>Weather forecast</h1>
+<h1>Digimon List</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
+<p></p>
 
-@if (forecasts == null)
+@if (digimonlist == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -18,20 +18,20 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>Name</th>
+                <th>Korean Name</th>
+                <th>Stage</th>
+                <th>Rank</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var digimon in digimonlist)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@digimon.EngName</td>
+                    <td>@digimon.KorName</td>
+                    <td>@digimon.Stage</td>
+                    <td>@digimon.Rank</td>
                 </tr>
             }
         </tbody>
@@ -39,10 +39,10 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private Digimon[]? digimonlist;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        digimonlist = await new DigimonService().GetDigimonDBAsync();
     }
 }

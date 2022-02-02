@@ -15,27 +15,10 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Korean Name</th>
-                <th>Stage</th>
-                <th>Rank</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var digimon in digimonlist)
-            {
-                <tr>
-                    <td>@digimon.EngName</td>
-                    <td>@digimon.KorName</td>
-                    <td>@digimon.Stage</td>
-                    <td>@digimon.Rank</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    @foreach (var digimon in digimonlist)
+    {
+        <SearchCard name=@digimon.EngName/>
+    }
 }
 
 @code {

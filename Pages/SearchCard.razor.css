@@ -2,4 +2,6 @@
     width: 42px;
     height: 42px;
     cursor: pointer;
+    margin:2px;
+    display: inline-block;
 }

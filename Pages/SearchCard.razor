@@ -1,30 +1,43 @@
+@using DigitalNetWeb.Data.Models;
+@using DigitalNetWeb.Data.ModelService;
+
 <div id="image">
-    <img src="https://i.imgur.com/cSOmuQ0.png" class="img-thumbnail" title=@name data-toggle="modal" data-target="#exampleModalCenter">
+  <img src=@icon class="img-thumbnail" title=@name data-toggle="modal" data-target=@targetModalID
+    @onmouseover="SetModal" @onmousedown="ChargeModal">
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id=@modalID tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">@name</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+    @if (ob is Digimon)
+    {
+      <DigimonModalContent ob=(Digimon)ob/>
+    }
   </div>
 </div>
 
 @code {
-    [Parameter]
-    public string name { get; set; } = "";
-    public int id { get; set; }
+  private string modalID { get; set; } = "";
+  private string targetModalID { get; set; } = "";
+
+  [Parameter]
+  public string name { get; set; } = "";
+  [Parameter]
+  public string icon { get; set; } = "https://i.imgur.com/dEBKEO7.png";
+  public int id { get; set; }
+  [Parameter]
+  public DBObject ob { get; set; }
+
+  private string ModelLink { get; set; } = "";
+  private void SetModal()
+  {
+    modalID = "D" + ob.Code.ToString();
+    targetModalID = "#" + modalID;
+  }
+
+  private void ChargeModal()
+  {
+
+  }
 }

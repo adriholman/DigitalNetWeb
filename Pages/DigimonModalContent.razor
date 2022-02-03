@@ -1,0 +1,29 @@
+@using DigitalNetWeb.Data.Models;
+@using DigitalNetWeb.Data.ModelService;
+
+<div class="modal-content">
+    <div class="modal-header">
+        <td>
+            <tr>
+                <h5 class="modal-title" id="title">@ob.EngName</h5>
+            </tr>
+            <tr>
+                <h6 class="modal-title" id="subtitle">@ob.KorName</h6>
+            </tr>
+        </td>
+    </div>
+    <div class="modal-body">
+        <div id="image-model">
+            <img src=@ob.ModelLink class="img-thumbnail" title="imgmodel" data-toggle="modal"
+                data-target="#exampleModalCenter">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Digimon ob { get; set; }
+}

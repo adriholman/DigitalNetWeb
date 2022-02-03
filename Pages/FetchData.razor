@@ -1,7 +1,5 @@
 ﻿@page "/fetchdata"
 
-<PageTitle>Digimon List</PageTitle>
-
 @using DigitalNetWeb.Data.Models;
 @using DigitalNetWeb.Data.ModelService;
 
@@ -15,10 +13,14 @@
 }
 else
 {
-    @foreach (var digimon in digimonlist)
-    {
-        <SearchCard name=@digimon.EngName/>
-    }
+    <div class="container">
+        <div class="item-wrapper">
+            @foreach (var digimon in digimonlist)
+            {
+                <SearchCard ob=@digimon name=@digimon.EngName icon=@digimon.IconLink />
+            }
+        </div>
+    </div>
 }
 
 @code {

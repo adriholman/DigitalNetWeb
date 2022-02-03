@@ -1,4 +1,6 @@
 ﻿@page "/"
+@using DigitalNetWeb.Data.Models;
+@using DigitalNetWeb.Data.ModelService;
 <head>
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
@@ -7,18 +9,39 @@
 </head>
 
 <div>
-<div class="input-group">
-    <div class="form-outline">
-        <input type="input" class="form-control" id="inputSearch" placeholder="Search">
+    <div class="input-group">
+        <div class="form-outline">
+            <input type="input" class="form-control" id="inputSearch" placeholder="Search">
+        </div>
+        <button type="button" class="btn btn-primary">
+            <i class="oi oi-magnifying-glass"></i>
+        </button>
     </div>
-    <button type="button" class="btn btn-primary">
-        <i class="oi oi-magnifying-glass"></i>
-    </button>
 </div>
 
-<div class="container">
-    <SearchCard></SearchCard>
-</div>
-</div>
+<br>
 
+@if (digimonlist == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="container">
+        <div class="item-wrapper">
+            @foreach (var digimon in digimonlist)
+            {
+                <SearchCard ob=@digimon name=@digimon.EngName icon=@digimon.IconLink />
+            }
+        </div>
+    </div>
+}
 
+@code {
+    private Digimon[]? digimonlist;
+
+    protected override async Task OnInitializedAsync()
+    {
+        digimonlist = await new DigimonService().GetDigimonDBAsync();
+    }
+}

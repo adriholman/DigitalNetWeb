@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using DigitalNetWeb.Data.Models;
 @using DigitalNetWeb.Data.ModelService;
+
 <head>
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
@@ -21,27 +22,54 @@
 
 <br>
 
-@if (digimonlist == null)
+@if (Digimonlist == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
     <div class="container">
-        <div class="item-wrapper">
-            @foreach (var digimon in digimonlist)
+    <div class="item-wrapper">
+        @for (int i = @StartLoop; i < @EndLoop; i++)
             {
+                Digimon digimon = Digimonlist[i];
                 <SearchCard ob=@digimon name=@digimon.EngName icon=@digimon.IconLink />
             }
         </div>
     </div>
 }
 
-@code {
-    private Digimon[]? digimonlist;
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        @for (int i = 0; i < @TotalPages; i++)
+        {
+            <li class="page-item" id=@generateID(i)><a class="page-link" href="#@i" id=@generateID(i) @onclick="@(e => reloadPage(i))">@i</a></li>
+        }
+    </ul>
+</nav>
 
+@code {
+    private Digimon[]? Digimonlist;
+    private int PageIndex = 0;
+    private int TotalPages = 0;
+    private int IconsPerPage = 150; // number of icons you want shown on each page
+    private int StartLoop = 0;
+    private int EndLoop = 0;
     protected override async Task OnInitializedAsync()
     {
-        digimonlist = await new DigimonService().GetDigimonDBAsync();
+        Digimonlist = await new DigimonService().GetDigimonDBAsync();
+        TotalPages = (Digimonlist.Length-1) / (IconsPerPage + 1);
+        EndLoop = Math.Min(((PageIndex * IconsPerPage) + IconsPerPage + PageIndex), Digimonlist.Length - 1);
+    }
+
+    private void reloadPage(int page){
+        PageIndex = page;
+        StartLoop = PageIndex*IconsPerPage;
+        EndLoop = Math.Min(((PageIndex * IconsPerPage) + IconsPerPage + PageIndex), Digimonlist.Length - 1);
+    }
+
+    private string generateID(int id){
+        Console.WriteLine("P"+id);
+        return "P"+id;
     }
 }

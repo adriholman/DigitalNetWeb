@@ -27,7 +27,7 @@
   public string icon { get; set; } = "https://i.imgur.com/dEBKEO7.png";
   public int id { get; set; }
   [Parameter]
-  public DBObject ob { get; set; }
+  public DBObject? ob { get; set; }
 
   private string ModelLink { get; set; } = "";
   private void SetModal()

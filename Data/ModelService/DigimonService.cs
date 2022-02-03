@@ -17,7 +17,7 @@ namespace DigitalNetWeb.Data.ModelService
             ddb.Clear();
             string query = "SELECT * from digimon_view";
             dataSQL.pullSQL(query);
-            DataTable myData = dataSQL.dataTable;
+            DataTable myData = dataSQL.dataTable ?? new DataTable();;
             foreach (DataRow row in myData.Rows)
             {
                 Digimon d = new Digimon();
@@ -39,7 +39,7 @@ namespace DigitalNetWeb.Data.ModelService
                 d.LvRequired = (String?)row.Field<Object>("level");
                 ddb.Add(d);
             }
-            ddb.Sort((x, y) => x.EngName.CompareTo(y.EngName));
+            ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));
             return Task.FromResult(ddb.ToArray());
         }
 
@@ -54,7 +54,7 @@ namespace DigitalNetWeb.Data.ModelService
                            "attacker_type like '%" + text + "%' or digimon_attribute like '%" + text + "%' or element like '%" + text + "%' or " + 
                            "stage like '%" + text + "%' or digimon_rank like '%" + text + "%')";
             dataSQL.pullSQL(query);
-            DataTable myData = dataSQL.dataTable;
+            DataTable myData = dataSQL.dataTable ?? new DataTable();
             foreach (DataRow row in myData.Rows)
             {
                 Digimon d = new Digimon();
@@ -76,7 +76,7 @@ namespace DigitalNetWeb.Data.ModelService
                 d.LvRequired = (String?)row.Field<Object>("level");
                 ddb.Add(d);
             }
-            ddb.Sort((x, y) => x.EngName.CompareTo(y.EngName));
+            ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));
             return Task.FromResult(ddb.ToArray());
         }
     }

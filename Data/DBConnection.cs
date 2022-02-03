@@ -4,7 +4,7 @@ namespace DigitalNetWeb.Data
 {
     public class DBConnection
     {
-        public DataTable dataTable = new DataTable();
+        public DataTable? dataTable = new DataTable();
         string source = "data.db;Version=3;";
 
         public DBConnection(){
@@ -13,7 +13,7 @@ namespace DigitalNetWeb.Data
         {
             try
             {
-                dataTable.Clear();
+                dataTable.Reset();
                 SQLiteConnection con = new SQLiteConnection("Data Source=" + source);
                 con.Open();
                 SQLiteCommand cmd = new SQLiteCommand(query, con);

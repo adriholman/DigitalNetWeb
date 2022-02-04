@@ -4,6 +4,19 @@
   justify-content: center;
 }
 
+.btn {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#pages{
+  margin-top: 20px;
+}
+
+.d-flex{
+  margin-top: -10px;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     ::deep .form-outline {

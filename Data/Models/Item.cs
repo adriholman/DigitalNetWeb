@@ -3,6 +3,5 @@ namespace DigitalNetWeb.Data.Models{
     {
         public string? category { get; set; }
         public string? quantity { get; set; }
-        public string? description { get; set; }
     }
 }

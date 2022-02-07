@@ -39,7 +39,7 @@ namespace DigitalNetWeb.Data.ModelService
                 d.LvRequired = (String?)row.Field<Object>("level");
                 ddb.Add(d);
             }
-            ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));
+            //ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));
             return Task.FromResult(ddb.ToArray());
         }
 
@@ -76,7 +76,7 @@ namespace DigitalNetWeb.Data.ModelService
                 d.LvRequired = (String?)row.Field<Object>("level");
                 ddb.Add(d);
             }
-            ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));
+            //ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));
             return ddb;
         }
     }

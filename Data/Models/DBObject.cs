@@ -7,5 +7,6 @@ namespace DigitalNetWeb.Data.Models
         public string? EngName { get; set; }
         public string? IconLink { get; set; }
         public string? ModelLink { get; set; }
+        public string? description { get; set; }
     }
 }

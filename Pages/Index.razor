@@ -39,7 +39,7 @@
                 @for (int i = @StartLoop; i <= @EndLoop; i++)
                 {
                     DBObject ob = ObjectList[i];
-                    <SearchCard ob=@ob name=@ob.EngName icon=@ob.IconLink />
+                    <SearchCard ob=@ob/>
                 }
             </ul>
             <div id="pages">
@@ -66,18 +66,10 @@
     private int StartLoop = 0;
     private int EndLoop = 0;
     [Parameter]
-    public string SearchText { set; get; }
-    protected override async Task OnInitializedAsync()
+    public string? SearchText { set; get; }
+    protected override void OnInitialized()
     {
-        //ObjectList = await new DigimonService().SearchDigimon(SearchText);
-        //TotalPages = (ObjectList.Length - 1) / (IconsPerPage + 1);
-        //EndLoop = IconsPerPage;
-        //StringValues extraTopping;
-        //var uri = NavManager.ToAbsoluteUri(NavManager.Uri);
-        //if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("extratopping", out extraTopping))
-        //{
-        // ToppingName = System.Convert.ToString(extraTopping);
-        //}
+        ObjectList = null;
     }
 
     protected override async Task OnParametersSetAsync()
@@ -88,6 +80,8 @@
             PageIndex = 0;
             TotalPages = (ObjectList.Length - 1) / (IconsPerPage + 1);
             EndLoop = Math.Min(((PageIndex * IconsPerPage) + IconsPerPage), ObjectList.Length - 1);
+        }else{
+            ObjectList = null;
         }
     }
 

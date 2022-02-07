@@ -3,20 +3,21 @@
 
 <div class="modal-content">
     <div class="modal-header">
-        <td>
-            <tr>
-                <h5 class="modal-title" id="title">@ob.EngName</h5>
-            </tr>
-            <tr>
-                <h6 class="modal-title" id="subtitle">@ob.KorName</h6>
-            </tr>
-        </td>
+        <img src=@ob.IconLink class="img-thumbnail"
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">@ob.EngName</div>
+            @ob.KorName
+        </div>
     </div>
     <div class="modal-body">
-        <div id="image-model">
-            <img src=@ob.ModelLink class="img-thumbnail" title="imgmodel" data-toggle="modal"
-                data-target="#exampleModalCenter">
+        @if(ob is Digimon){
+                    <div id="image-model">
+            <img src=@ob.ModelLink class="img-thumbnail">
         </div>
+        }
+        @if(ob is Item){
+            <p class="text-justify">@ob.description</p>
+        }
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -25,5 +26,5 @@
 
 @code {
     [Parameter]
-    public Digimon? ob { get; set; }
+    public DBObject? ob { get; set; }
 }

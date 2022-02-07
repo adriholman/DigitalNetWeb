@@ -1,43 +1,41 @@
 @using DigitalNetWeb.Data.Models;
 @using DigitalNetWeb.Data.ModelService;
 
-  <li class="list-group-item d-flex justify-content-between align-items-start">
-  <img src=@icon class="img-thumbnail" data-toggle="modal" data-target=@targetModalID
-    @onmouseover="SetModal" @onmousedown="ChargeModal">
-    <div class="ms-2 me-auto">
-      <div class="fw-bold">@ob.EngName</div>
-      @ob.KorName
-    </div>
-  </li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+  <img src=@ob.IconLink class="img-thumbnail" data-toggle="modal" data-target=@targetModalID @onmouseover="SetModal"
+    @onmousedown="ChargeModal">
+  <div class="ms-2 me-auto">
+    <div class="fw-bold">@ob.EngName</div>
+    @ob.KorName
+  </div>
+</li>
 
 <!-- Modal -->
 <div class="modal fade" id=@modalID tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    @if (ob is Digimon)
-    {
-      <ModalContentDigimon ob=(Digimon)ob/>
-    }
-
+        <ModalContentDigimon ob=@ob />
   </div>
 </div>
 
 @code {
   private string modalID { get; set; } = "";
   private string targetModalID { get; set; } = "";
-
-  [Parameter]
-  public string name { get; set; } = "";
-  [Parameter]
-  public string icon { get; set; } = "https://i.imgur.com/dEBKEO7.png";
-  public int id { get; set; }
   [Parameter]
   public DBObject? ob { get; set; }
-
-  private string ModelLink { get; set; } = "";
   private void SetModal()
   {
-    modalID = "D" + ob.Code.ToString();
+    if (ob is Digimon)
+    {
+      modalID = "D" + ob.Code.ToString();
+    }
+    else
+    {
+      if (ob is Item)
+      {
+        modalID = "I" + ob.Code.ToString();
+      }
+    }
     targetModalID = "#" + modalID;
   }
 

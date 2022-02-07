@@ -23,6 +23,7 @@ namespace DigitalNetWeb.Data.ModelService
             foreach (DataRow row in myData.Rows)
             {
                 Item i = new Item();
+                i.Code = (int)row.Field<long>("id");
                 if (row.IsNull("korean_name")) { i.KorName = ""; } else { i.KorName = (string)row.Field<string>("korean_name"); }
                 if (row.IsNull("name")) { i.EngName = ""; } else { i.EngName = (string)row.Field<Object>("name"); }
                 if (row.IsNull("icon_link")) { i.IconLink = "https://i.imgur.com/dEBKEO7.png"; } else { i.IconLink = (String?)row.Field<Object>("icon_link"); }

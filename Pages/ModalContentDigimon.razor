@@ -3,25 +3,26 @@
 
 <div class="modal-content">
     <div class="modal-header">
-        <img src=@ob.IconLink class="img-thumbnail"
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">@ob.EngName</div>
-            @ob.KorName
-        </div>
+        <img src=@ob.IconLink class="img-thumbnail" <div class="ms-2 me-auto">
+        <div class="fw-bold">@ob.EngName</div>
+        @ob.KorName
     </div>
-    <div class="modal-body">
-        @if(ob is Digimon){
-                    <div id="image-model">
+</div>
+<div class="modal-body">
+    @if (ob is Digimon)
+        {
+        <div id="image-model">
             <img src=@ob.ModelLink class="img-thumbnail">
         </div>
         }
-        @if(ob is Item){
-            <p class="text-justify">@ob.description</p>
+        @if (ob is Item)
+        {
+        <p class="text-justify">@ob.description</p>
         }
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
 </div>
 
 @code {

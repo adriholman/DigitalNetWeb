@@ -18,7 +18,8 @@
     <div>
         <div class="input-group">
             <div class="form-outline">
-                <input type="input" class="form-control" placeholder="Search" @bind="@SearchText">
+                <input type="input" class="form-control" placeholder="Search" @bind="@SearchText"
+                    @onkeydown="KeyboardEventHandler" @onkeypress="KeyboardEventHandler" @onkeyup="KeyboardEventHandler">
             </div>
             <button type="button" class="btn btn-primary" @onclick="NavigateToSearchPage">
                 <i class="oi oi-magnifying-glass"></i>
@@ -38,8 +39,8 @@
             <ul class="list-group-flush">
                 @for (int i = @StartLoop; i <= @EndLoop; i++)
                 {
-                    DBObject ob = ObjectList[i];
-                    <SearchCard ob=@ob/>
+                    DBObject cardObject = ObjectList[i];
+                    <SearchCard item=cardObject />
                 }
             </ul>
             <div id="pages">
@@ -80,7 +81,9 @@
             PageIndex = 0;
             TotalPages = (ObjectList.Length - 1) / (IconsPerPage + 1);
             EndLoop = Math.Min(((PageIndex * IconsPerPage) + IconsPerPage), ObjectList.Length - 1);
-        }else{
+        }
+        else
+        {
             ObjectList = null;
         }
     }
@@ -91,6 +94,12 @@
         {
             NavManager.NavigateTo("search/" + SearchText);
         }
+    }
+
+    private void KeyboardEventHandler(KeyboardEventArgs args)
+    {
+        Console.WriteLine("Key Pressed is " + args.Key + " Event Type " + args.Type);
+        NavigateToSearchPage();
     }
 
     private void next()

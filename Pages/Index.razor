@@ -13,9 +13,9 @@
     <div>
         <div class="input-group">
             <div class="form-outline">
-                <input type="input" class="form-control" id="inputSearch" placeholder="Search">
+                <input type="input" class="form-control" placeholder="Search" @bind="@SearchText">
             </div>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" @onclick="search">
                 <i class="oi oi-magnifying-glass"></i>
             </button>
         </div>
@@ -30,13 +30,13 @@
     else
     {
         <div class="container">
-            <div class="item-wrapper">
+            <ul class="list-group-flush">
                 @for (int i = @StartLoop; i <= @EndLoop; i++)
                 {
                     Digimon digimon = Digimonlist[i];
                     <SearchCard ob=@digimon name=@digimon.EngName icon=@digimon.IconLink />
                 }
-            </div>
+            </ul>
             <div id="pages">
                 <div class="d-flex justify-content-center">
                     <p class="btn btn-secondary" @onclick="previous">Back</p>
@@ -54,16 +54,26 @@
 
 @code {
     private Digimon[]? Digimonlist;
+    private List<Digimon> Searchlist;
     private int PageIndex = 0;
     private int TotalPages = 0;
-    private int IconsPerPage = 149; // number of icons you want shown on each page
+    private int IconsPerPage = 24; // number of icons you want shown on each page
     private int StartLoop = 0;
     private int EndLoop = 0;
+
+    private string? SearchText;
     protected override async Task OnInitializedAsync()
     {
         Digimonlist = await new DigimonService().GetDigimonDBAsync();
         TotalPages = (Digimonlist.Length - 1) / (IconsPerPage + 1);
         EndLoop = IconsPerPage;
+    }
+
+    private void search(){
+        Searchlist = new DigimonService().SearchDigimon(SearchText);
+        Console.WriteLine(Searchlist.Count);
+        Digimonlist = null;
+        Digimonlist = Searchlist.ToArray();
     }
 
     private void next()

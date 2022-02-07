@@ -3,7 +3,7 @@
 @using DigitalNetWeb.Data.Models;
 @using DigitalNetWeb.Data.ModelService;
 
-<h1>Digimon List</h1>
+<h1>List</h1>
 
 <p></p>
 
@@ -13,14 +13,12 @@
 }
 else
 {
-    <div class="container">
-        <div class="item-wrapper">
-            @foreach (var digimon in digimonlist)
-            {
-                <SearchCard ob=@digimon name=@digimon.EngName icon=@digimon.IconLink />
-            }
-        </div>
-    </div>
+    <ul class="list-group-flush">
+        @foreach (var digimon in digimonlist)
+        {
+            <SearchCard ob=@digimon name=@digimon.EngName icon=@digimon.IconLink />
+        }
+    </ul>
 }
 
 @code {

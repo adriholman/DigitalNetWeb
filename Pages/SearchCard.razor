@@ -1,10 +1,14 @@
 @using DigitalNetWeb.Data.Models;
 @using DigitalNetWeb.Data.ModelService;
 
-<div id="image">
-  <img src=@icon class="img-thumbnail" title=@name data-toggle="modal" data-target=@targetModalID
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+  <img src=@icon class="img-thumbnail" data-toggle="modal" data-target=@targetModalID
     @onmouseover="SetModal" @onmousedown="ChargeModal">
-</div>
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">@ob.EngName</div>
+      @ob.KorName
+    </div>
+  </li>
 
 <!-- Modal -->
 <div class="modal fade" id=@modalID tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"

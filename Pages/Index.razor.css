@@ -4,6 +4,11 @@
   justify-content: center;
 }
 
+.list-group-flush{
+  margin: 0px;
+  padding: 0px;
+}
+
 .btn {
   margin-left: 2px;
   margin-right: 2px;

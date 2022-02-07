@@ -43,7 +43,7 @@ namespace DigitalNetWeb.Data.ModelService
             return Task.FromResult(ddb.ToArray());
         }
 
-        public Task<Digimon[]> SearchDigimon(string text)
+        public List<Digimon> SearchDigimon(string text)
         {
             if (dataSQL == null)
             {
@@ -77,7 +77,7 @@ namespace DigitalNetWeb.Data.ModelService
                 ddb.Add(d);
             }
             ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));
-            return Task.FromResult(ddb.ToArray());
+            return ddb;
         }
     }
 }

@@ -8,3 +8,8 @@
 .list-group-item{
     cursor: pointer;
 }
+
+.txtFont{
+    font-size: 12px;
+    margin-top: 6px;
+}

@@ -13,6 +13,7 @@ namespace DigitalNetWeb.Data
             List<DBObject> mySearch = new List<DBObject>();
             mySearch.AddRange(new DigimonService().SearchDigimon(text));
             mySearch.AddRange(new ItemService().SearchForItems(text));
+            mySearch.AddRange(new TamerService().searchForTamer(text));
 
             mySearch.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));
             return Task.FromResult(mySearch.ToArray());

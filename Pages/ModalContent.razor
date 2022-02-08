@@ -17,7 +17,11 @@
         }
         @if (ob is Item)
         {
-        <p class="text-justify">@ob.description</p>
+            <p class="text-justify">@ob.description</p>
+        }
+        @if (ob is Tamer)
+        {
+            <img src=@ob.ModelLink class="img-thumbnail">
         }
 </div>
 <div class="modal-footer">

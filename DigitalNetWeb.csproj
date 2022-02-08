@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\favicon.ico" />
-    <None Include="App_Data\data.db" />
+    <None Include="data.db"/>
   </ItemGroup>
 
   <ItemGroup>

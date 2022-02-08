@@ -5,9 +5,10 @@ namespace DigitalNetWeb.Data
     public class DBConnection
     {
         public DataTable? dataTable = new DataTable();
-        string source = "App_data/data.db;Version=3;";
+        string source = "App_Data/data.db;Version=3;";
 
-        public DBConnection(){
+        public DBConnection()
+        {
         }
         public void pullSQL(string query)
         {
@@ -28,7 +29,6 @@ namespace DigitalNetWeb.Data
             }
             catch (Exception e)
             {
-                
                 Console.WriteLine(e.Message);
             }
         }

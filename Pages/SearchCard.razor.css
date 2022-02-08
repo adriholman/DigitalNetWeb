@@ -1,0 +1,7 @@
+.img-thumbnail{
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    margin-top: 4px;
+    display: inline-block;
+}

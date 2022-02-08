@@ -1,9 +1,137 @@
 ﻿@page "/"
+@page "/search/{SearchText?}"
+@inject NavigationManager NavManager
+@using Microsoft.AspNetCore.WebUtilities;
+@using DigitalNetWeb.Data;
+@using DigitalNetWeb.Data.Models;
+@using DigitalNetWeb.Data.ModelService;
+@using Microsoft.Extensions.Primitives;
 
-<h1>Hello, world!</h1>
+<head>
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <link rel="apple-touch-icon" type="image/ico" href="/favicon.ico" />
 
-Welcome to your new app.
+</head>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<body>
+    <div>
+        <div class="input-group">
+            <div class="form-outline">
+                <input type="input" class="form-control" placeholder="Search" @bind="@SearchText"
+                    @onkeydown="KeyboardEventHandler" @onkeypress="KeyboardEventHandler" @onkeyup="KeyboardEventHandler">
+            </div>
+            <button type="button" class="btn btn-primary" @onclick="NavigateToSearchPage">
+                <i class="oi oi-magnifying-glass"></i>
+            </button>
+        </div>
+    </div>
 
-<Counter IncrementAmount="10" />
+    <br>
+
+    @if (ObjectList == null)
+    {
+        
+    }
+    else
+    {
+        <div class="container">
+            <ul class="list-group-flush">
+                @for (int i = @StartLoop; i <= @EndLoop; i++)
+                {
+                    DBObject cardObject = ObjectList[i];
+                    <SearchCard item=cardObject />
+                }
+            </ul>
+            <div id="pages">
+                <div class="d-flex justify-content-center">
+                    <p class="btn btn-secondary" @onclick="previous">Back</p>
+                    <p class="btn btn-primary" @onclick="next">Next</p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p id="currentPage" class="align-text-bottom">Page <strong>@PageIndex</strong> of
+                        <strong>@TotalPages</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+</body>
+
+@code {
+    private DBObject[]? ObjectList;
+    private int PageIndex = 0;
+    private int TotalPages = 0;
+    private int IconsPerPage = 24; // number of icons you want shown on each page
+    private int StartLoop = 0;
+    private int EndLoop = 0;
+    [Parameter]
+    public string? SearchText { set; get; }
+    protected override void OnInitialized()
+    {
+        ObjectList = null;
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (SearchText != null)
+        {
+            ObjectList = await new DBService().SearchObjects(SearchText);
+            PageIndex = 0;
+            TotalPages = (ObjectList.Length - 1) / (IconsPerPage + 1);
+            EndLoop = Math.Min(((PageIndex * IconsPerPage) + IconsPerPage), ObjectList.Length - 1);
+        }
+        else
+        {
+            ObjectList = null;
+        }
+    }
+
+    private void NavigateToSearchPage()
+    {
+        if (SearchText != null)
+        {
+            NavManager.NavigateTo("search/" + SearchText);
+        }
+    }
+
+    private void KeyboardEventHandler(KeyboardEventArgs args)
+    {
+        //Console.WriteLine("Key Pressed is " + args.Key + " Event Type " + args.Type);
+        NavigateToSearchPage();
+    }
+
+    private void next()
+    {
+        LoadPage(true);
+    }
+
+    private void previous()
+    {
+        LoadPage(false);
+    }
+
+    private void LoadPage(bool pgNext)
+    {
+        // make sure there is another page before adding 1 to the PageIndex
+        if (pgNext & (PageIndex + 1) * IconsPerPage < ObjectList.Length)
+            PageIndex += 1;
+        else if (!pgNext & PageIndex - 1 >= 0)
+            PageIndex -= 1;
+        else
+            return;// exit the sub if already on Page1 or on the Last Page
+
+        int endpage = Math.Min(((PageIndex * IconsPerPage) + IconsPerPage), ObjectList.Length - 1);
+
+        int i = 0;
+        if (PageIndex != 0)
+        {
+            i += PageIndex;
+            endpage = Math.Min(((PageIndex * IconsPerPage) + IconsPerPage + PageIndex), ObjectList.Length - 1);
+        }
+        i += (PageIndex * IconsPerPage);
+        StartLoop = i;
+        EndLoop = endpage;
+    }
+}

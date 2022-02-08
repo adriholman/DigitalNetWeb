@@ -1,0 +1,42 @@
+@using DigitalNetWeb.Data.Models;
+@using DigitalNetWeb.Data.ModelService;
+
+<li class="list-group-item d-flex justify-content-between align-items-start">
+  <img src=@item.IconLink class="img-thumbnail" data-toggle="modal" data-target=@targetModalID @onmouseover="SetModal"
+    @onmousedown="ChargeModal">
+  <div class="ms-2 me-auto">
+    <div class="fw-bold">@item.EngName</div>
+    @item.KorName
+  </div>
+</li>
+
+<!-- Modal -->
+<div class="modal fade" id=@modalID tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <ModalContentDigimon ob=@item />
+  </div>
+</div>
+
+@code {
+  private string modalID { get; set; } = "";
+  private string targetModalID { get; set; } = "";
+  [Parameter]
+  public DBObject? item { get; set; }
+  private void SetModal()
+  {
+    if (item is Digimon)
+    {
+      modalID = "Digimon" + item.Code.ToString();
+    }
+    if (item is Item)
+    {
+      modalID = "Item" + item.Code.ToString();
+    }
+    targetModalID = "#" + modalID;
+  }
+
+  private void ChargeModal()
+  {
+  }
+}

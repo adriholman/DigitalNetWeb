@@ -9,13 +9,16 @@
 
   <ItemGroup>
     <None Include="wwwroot\favicon.ico" />
-    <None Include="data.db"/>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Primitives" Version="6.0.0" />
-    <PackageReference Include="PagedList.Core" Version="1.17.4" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.112.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App_Data\data.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

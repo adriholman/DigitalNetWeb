@@ -3,7 +3,7 @@
 
 <li class="list-group-item d-flex justify-content-between align-items-start">
   <img src=@DBO.IconLink class="img-thumbnail" data-toggle="modal" data-target=@targetModalID 
-  @onmouseover="SetModal" @onmousedown="ChargeModal" @ontouchenter="ChargeModal">
+  @onmouseover="SetModal" @onmousedown="ChargeModal" @ontouchstart="SetModal" @ontouchenter="ChargeModal">
   <div class="ms-2 me-auto">
     <div class="fw-bold">@DBO.EngName</div>
     @DBO.KorName

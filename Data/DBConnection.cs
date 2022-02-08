@@ -5,7 +5,7 @@ namespace DigitalNetWeb.Data
     public class DBConnection
     {
         public DataTable? dataTable = new DataTable();
-        string source = "/../App_Data/data.db;Version=3;";
+        string source = "data.db;Version=3;";
 
         public DBConnection()
         {

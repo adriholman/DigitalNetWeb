@@ -1,7 +1,17 @@
+body{
+  background-color: transparent;
+}
+
 .input-group {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.form-control{
+  background-color: transparent;
+  border-color: #4472c4;
+  color: white;
 }
 
 .list-group-flush{

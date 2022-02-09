@@ -1,22 +1,25 @@
 @using DigitalNetWeb.Data.Models;
 @using DigitalNetWeb.Data.ModelService;
 
-<li class="list-group-item d-flex justify-content-between align-items-start" data-toggle="modal"
-  data-target=@targetModalID>
-  <img src=@DBO.IconLink class="img-thumbnail">
-  <div class="ms-2 me-auto txtFont">
-    <div class="fw-bold">@DBO.EngName</div>
-    @DBO.KorName
-  </div>
-</li>
+<body>
+  <li class="list-group-item d-flex justify-content-between align-items-start" data-toggle="modal"
+    data-target=@targetModalID>
+    <img src=@DBO.IconLink class="img-thumbnail">
+    <div class="ms-2 me-auto txtFont">
+      <div class="fw-bold">@DBO.EngName</div>
+      @DBO.KorName
+    </div>
+  </li>
 
-<!-- Modal -->
-<div class="modal fade" id=@modalID tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <ModalContent ob=@DBO />
+  <!-- Modal -->
+  <div class="modal fade" id=@modalID tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <ModalContent ob=@DBO />
+    </div>
   </div>
-</div>
+</body>
+
 
 @code {
   private string modalID { get; set; } = "";

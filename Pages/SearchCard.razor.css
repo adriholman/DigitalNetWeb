@@ -1,3 +1,7 @@
+body{
+    background-color: transparent;
+  }
+
 .img-thumbnail{
     width: 42px;
     height: 42px;
@@ -7,6 +11,9 @@
 
 .list-group-item{
     cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border-bottom-color: #4472c4;
 }
 
 .txtFont{

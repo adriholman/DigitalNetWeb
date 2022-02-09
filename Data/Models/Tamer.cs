@@ -1,6 +1,5 @@
 namespace DigitalNetWeb.Data.Models
 {
-
     public class Tamer : DBObject
     {
         public Tamer(){}

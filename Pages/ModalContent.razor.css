@@ -2,6 +2,10 @@
     font-size: 13px;
 }
 
+.modal-body{
+    font-size: 13px;
+}
+
 textarea {
     resize: none;
     overflow-y: scroll;

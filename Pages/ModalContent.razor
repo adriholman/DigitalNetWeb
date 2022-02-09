@@ -18,11 +18,23 @@
         }
         @if (ob is Item)
         {
-            <textarea rows="20" readonly>@ob.description</textarea>
+            <textarea rows="20" readonly>@ob.Description</textarea>
         }
         @if (ob is Tamer)
         {
             <img src=@ob.ModelLink class="img-thumbnail">
+        }
+        @if (ob is Seal)
+        {
+            Seal s = (Seal)ob;
+            <div class="ms-2 me-auto txtFont">
+                <div class="fw-bold">[Master Seal Bonus]</div>
+                @s.sealBonus
+            </div>
+        }
+        @if (ob is MemorySkillData)
+        {
+            <textarea rows="10" readonly>@ob.Description</textarea>
         }
     </div>
     <div class="modal-footer">

@@ -40,7 +40,7 @@
                 @for (int i = @StartLoop; i <= @EndLoop; i++)
                 {
                     DBObject cardObject = ObjectList[i];
-                    <SearchCard item=cardObject />
+                    <SearchCard DBO=cardObject />
                 }
             </ul>
             <div id="pages">
@@ -56,7 +56,6 @@
             </div>
         </div>
     }
-
 </body>
 
 @code {

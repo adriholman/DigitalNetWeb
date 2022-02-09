@@ -1,7 +1,15 @@
 .img-thumbnail{
     width: 42px;
     height: 42px;
-    cursor: pointer;
     margin-top: 4px;
     display: inline-block;
+}
+
+.list-group-item{
+    cursor: pointer;
+}
+
+.txtFont{
+    font-size: 12px;
+    margin-top: 6px;
 }

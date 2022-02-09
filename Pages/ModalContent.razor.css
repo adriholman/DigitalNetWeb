@@ -1,0 +1,11 @@
+.modal-header{
+    font-size: 13px;
+}
+
+textarea {
+    resize: none;
+    overflow-y: scroll;
+    border: 0px;
+    font-size: 12px;
+    width: 100%;
+}

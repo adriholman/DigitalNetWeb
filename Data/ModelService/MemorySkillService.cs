@@ -21,7 +21,7 @@ namespace DigitalNetWeb.Data.ModelService
             foreach (DataRow row in myData.Rows)
             {
                 MemorySkillDataCube ms = new MemorySkillDataCube();
-                ms.Id = (int)row.Field<long>("id");
+                ms.Code = (int)row.Field<long>("id");
                 ms.Type = (String?)row.Field<object>("type");
                 ms.KorName = (String?)row.Field<object>("korean_name");
                 ms.EngName = (String?)row.Field<object>("dub_name");
@@ -50,7 +50,7 @@ namespace DigitalNetWeb.Data.ModelService
             foreach (DataRow row in myData.Rows)
             {
                 MemorySkillDataCapsule ms = new MemorySkillDataCapsule();
-                ms.Id = (int)row.Field<long>("id");
+                ms.Code = (int)row.Field<long>("id");
                 ms.Type = (String?)row.Field<object>("type");
                 ms.KorName = (String?)row.Field<object>("korean_name");
                 ms.EngName = (String?)row.Field<object>("dub_name");

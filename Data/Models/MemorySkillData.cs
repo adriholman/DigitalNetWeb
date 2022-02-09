@@ -4,7 +4,6 @@
     {        
         public MemorySkillData(){}
         public String? Type { get; set; }
-        public int Id { get; set; }
         public String? Cd { get; set; }
         public String? Description_es { get; set; }
 

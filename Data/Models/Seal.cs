@@ -1,8 +1,8 @@
 ﻿namespace DigitalNetWeb.Data.Models
 {
-    public class DigimonSeal : DBObject
+    public class Seal : DBObject
     {
-        public DigimonSeal() { }
+        public Seal() { }
         public string? sealBonus { get; set; }
         public string? stage { get; set; }
         public string? stat { get; set; }

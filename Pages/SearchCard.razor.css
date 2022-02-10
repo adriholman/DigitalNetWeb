@@ -7,6 +7,8 @@ body{
     height: 42px;
     margin-top: 4px;
     display: inline-block;
+    background-color: transparent;
+    border-color: #4472c4;
 }
 
 .list-group-item{

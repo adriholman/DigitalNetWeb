@@ -7,6 +7,8 @@ namespace DigitalNetWeb.Data.Models
         public string? Avaible { get; set; }
         public string? ASkillName { get; set; }
         public string? ASkillCD { get; set; }
+
+        public string? ASkillD { get; set; }
         public string? PSkill1N { get; set; }
         public string? PSkill1B { get; set; }
         public string? PSkill1A { get; set; }

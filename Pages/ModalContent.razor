@@ -16,7 +16,6 @@
                 <div class="col">
                     <img src=@ob.ModelLink class="img-fluid">
                 </div>
-
             </div>
         }
         @if (ob is Item)
@@ -25,7 +24,56 @@
         }
         @if (ob is Tamer)
         {
-            <img src=@ob.ModelLink class="img-fluid">
+            Tamer t = (Tamer)ob;
+            <div class="row row-cols-auto">
+                <div class="col">
+                    <img src=@ob.ModelLink class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="2">Base Stats Lv1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">HP</th>
+                                <td>@t.AT</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">DS</th>
+                                <td>@t.DE</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AT</th>
+                                <td>@t.DS</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">DE</th>
+                                <td>@t.HP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="4">Skill</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Icon</th>
+                                <td>@t.ASkillName</td>
+                                <td></td>
+                                <td>@t.ASkillCD</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         }
         @if (ob is Seal)
         {

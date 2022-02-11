@@ -12,8 +12,11 @@
     <div class="modal-body">
         @if (ob is Digimon)
         {
-            <div id="image-model">
-                <img src=@ob.ModelLink class="img-thumbnail">
+            <div class="row row-cols-auto">
+                <div class="col">
+                    <img src=@ob.ModelLink class="img-fluid">
+                </div>
+
             </div>
         }
         @if (ob is Item)
@@ -22,7 +25,7 @@
         }
         @if (ob is Tamer)
         {
-            <img src=@ob.ModelLink class="img-thumbnail">
+            <img src=@ob.ModelLink class="img-fluid">
         }
         @if (ob is Seal)
         {
@@ -38,7 +41,7 @@
         }
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
     </div>
 </div>
 

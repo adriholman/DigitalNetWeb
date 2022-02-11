@@ -1,16 +1,43 @@
 .modal-header{
     font-size: 13px;
+    border-bottom-color: #4472c4;
 }
 
 .modal-body{
     font-size: 13px;
+    border-top-color: #4472c4;
+    border-bottom-color: #4472c4;
+}
+
+.modal-footer{
+    border-top-color: #4472c4;
 }
 
 textarea {
     resize: none;
-    overflow-y: scroll;
+    overflow-y: auto;
     border: 0px;
     font-size: 12px;
     width: 100%;
+    background-color: transparent;
+    color: #d7d7d7;;
+}
+
+.img-thumbnail{
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    background-color: transparent;
+    border-color: #4472c4;
+}
+
+.modal-content{
+    border-color: #4472c4;
+    background-color: #000f2c;
+    color: #d7d7d7;
+}
+
+.table{
+    color: #d7d7d7;
 }
 

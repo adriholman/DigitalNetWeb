@@ -11,7 +11,7 @@ body{
 .form-control{
   background-color: transparent;
   border-color: #4472c4;
-  color: white;
+  color: #d7d7d7;
 }
 
 .list-group-flush{
@@ -26,7 +26,7 @@ body{
 
 #pages{
   margin-top: 20px;
-  color: white;
+  color: #d7d7d7;
 }
 
 .d-flex{

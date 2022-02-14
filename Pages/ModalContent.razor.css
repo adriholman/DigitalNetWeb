@@ -44,4 +44,11 @@ textarea {
 .table{
     border-color: #4472c4;
 }
+.img{
+    width: 100%;
+}
 
+th, tr{
+    vertical-align: middle;
+    text-align: center;
+}

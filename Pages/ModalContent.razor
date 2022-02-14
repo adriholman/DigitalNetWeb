@@ -27,7 +27,7 @@
             Tamer t = (Tamer)ob;
             <div class="row row-cols-2">
                 <div class="col-sm-8" colspan="2">
-                    <img src=@ob.ModelLink class="img-fluid">
+                    <img src=@ob.ModelLink class="img">
                 </div>
                 <div class="col-4">
                     <table class="table table-bordered">
@@ -56,24 +56,40 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
             <div class="row">
-            <div class="col">
+                <div class="col">
                     <table class="table table-bordered table-responsive align-middle">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="2">Skill Name</th>
-                                <th scope="col" colspan="1">Descripcion</th>
+                                <th scope="col" colspan="2">Skill</th>
+                                <th scope="col" colspan="1">Description</th>
                                 <th scope="col" colspan="1">Cooldown</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">Icon</th>
+                                <th scope="row"><img src=@t.ASkillIcon class=""></th>
                                 <td>@t.ASkillName</td>
                                 <td>@t.ASkillD</td>
                                 <td>@t.ASkillCD</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered table-responsive align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="2" class="align-middle">Buffs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src=@t.PSkill1A class="align-middle"> @t.PSkill1B</td>
+                                <td><img src=@t.PSkill2A class="align-middle"> @t.PSkill2B</td>
                             </tr>
                         </tbody>
                     </table>

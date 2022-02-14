@@ -6,6 +6,7 @@ namespace DigitalNetWeb.Data.Models
         public string? Nickname { get; set; }
         public string? Avaible { get; set; }
         public string? ASkillName { get; set; }
+        public string? ASkillIcon { get; set; }
         public string? ASkillCD { get; set; }
 
         public string? ASkillD { get; set; }

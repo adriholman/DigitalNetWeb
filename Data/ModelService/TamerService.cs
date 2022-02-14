@@ -29,6 +29,7 @@ namespace DigitalNetWeb.Data.ModelService
                 if (row.IsNull("icon_link")) { ds.IconLink = "https://i.imgur.com/dEBKEO7.png"; } else { ds.IconLink = (String?)row.Field<Object>("icon_link"); }
                 if (row.IsNull("model_link")) { ds.ModelLink = ""; } else { ds.ModelLink = (String?)row.Field<Object>("model_link"); }
                 ds.ASkillName = (String?)row.Field<object>("active_skill");
+                ds.ASkillD = (String?)row.Field<object>("active_skill_desc");
                 ds.ASkillCD = (String?)row.Field<object>("active_skill_cd");
                 ds.PSkill1N = (String?)row.Field<object>("first_passive");
                 ds.PSkill1B = (String?)row.Field<object>("first_bonus");

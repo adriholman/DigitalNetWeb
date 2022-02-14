@@ -25,11 +25,11 @@
         @if (ob is Tamer)
         {
             Tamer t = (Tamer)ob;
-            <div class="row row-cols-auto">
-                <div class="col">
+            <div class="row row-cols-2">
+                <div class="col-sm-8" colspan="2">
                     <img src=@ob.ModelLink class="img-fluid">
                 </div>
-                <div class="col-md-4">
+                <div class="col-4">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -56,18 +56,23 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-4">
-                    <table class="table table-bordered">
+
+            </div>
+            <div class="row">
+            <div class="col">
+                    <table class="table table-bordered table-responsive align-middle">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="4">Skill</th>
+                                <th scope="col" colspan="2">Skill Name</th>
+                                <th scope="col" colspan="1">Descripcion</th>
+                                <th scope="col" colspan="1">Cooldown</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">Icon</th>
                                 <td>@t.ASkillName</td>
-                                <td></td>
+                                <td>@t.ASkillD</td>
                                 <td>@t.ASkillCD</td>
                             </tr>
                         </tbody>

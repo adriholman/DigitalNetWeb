@@ -25,32 +25,30 @@
         @if (ob is Tamer)
         {
             Tamer t = (Tamer)ob;
-            <div class="row row-cols-2">
-                <div class="col-sm-8" colspan="2">
+            <div class="row">
+                <div class="col">
                     <img src=@ob.ModelLink class="img">
                 </div>
-                <div class="col-4">
-                    <table class="table table-bordered">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="2">Base Stats Lv1</th>
+                                <th scope="col" colspan="4">Base Stats Lv1</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">HP</th>
-                                <td>@t.AT</td>
+                                <th scope="col">HP</th>
+                                <th scope="col">DS</th>
+                                <th scope="col">AT</th>
+                                <th scope="col">DE</th>
                             </tr>
                             <tr>
-                                <th scope="row">DS</th>
+                                <th>@t.AT</th>
                                 <td>@t.DE</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">AT</th>
                                 <td>@t.DS</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">DE</th>
                                 <td>@t.HP</td>
                             </tr>
                         </tbody>
@@ -62,7 +60,8 @@
                     <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="2" class="title"><img src=@t.ASkillIcon class="img-thumbnail"> @t.ASkillName - Skill</th>
+                                <th scope="col" colspan="2" class="title"><img src=@t.ASkillIcon class="img-thumbnail">
+                                    @t.ASkillName - Skill</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -83,8 +82,8 @@
                     <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="2" class="title"> <img src=@t.PSkillIcon
-                                    class="img-thumbnail"> @t.PSkill1N - Buff</th>
+                                <th scope="col" colspan="2" class="title"> <img src=@t.PSkillIcon class="img-thumbnail">
+                                    @t.PSkill1N - Buff</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -27,8 +27,11 @@ namespace DigitalNetWeb.Data.ModelService
                 ds.EngName = (String?)row.Field<object>("dub_name");
                 ds.KorName = (String?)row.Field<object>("korean_name");
                 if (row.IsNull("icon_link")) { ds.IconLink = "https://i.imgur.com/dEBKEO7.png"; } else { ds.IconLink = (String?)row.Field<Object>("icon_link"); }
-                if (row.IsNull("model_link")) { ds.ModelLink = ""; } else { ds.ModelLink = (String?)row.Field<Object>("model_link"); }
+                if (row.IsNull("model_link")) { ds.ModelLink = ""; } else { ds.ModelLink = (String?)row.Field<Object>("model_link");}
+                if (row.IsNull("skill_icon_link")) { ds.ASkillIcon = ""; } else { ds.ASkillIcon = (String?)row.Field<Object>("skill_icon_link");}
+                if (row.IsNull("passive_icon_link")) { ds.PSkillIcon = ""; } else { ds.PSkillIcon = (String?)row.Field<Object>("passive_icon_link");}
                 ds.ASkillName = (String?)row.Field<object>("active_skill");
+                ds.ASkillD = (String?)row.Field<object>("active_skill_desc");
                 ds.ASkillCD = (String?)row.Field<object>("active_skill_cd");
                 ds.PSkill1N = (String?)row.Field<object>("first_passive");
                 ds.PSkill1B = (String?)row.Field<object>("first_bonus");

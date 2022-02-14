@@ -59,19 +59,19 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table table-bordered table-responsive align-middle">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="2">Skill</th>
-                                <th scope="col" colspan="1">Description</th>
-                                <th scope="col" colspan="1">Cooldown</th>
+                                <th scope="col" colspan="2" class="title"><img src=@t.ASkillIcon class="img-thumbnail"> @t.ASkillName - Skill</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row"><img src=@t.ASkillIcon class=""></th>
-                                <td>@t.ASkillName</td>
+                                <th scope="col">Description</th>
                                 <td>@t.ASkillD</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Cooldown</th>
                                 <td>@t.ASkillCD</td>
                             </tr>
                         </tbody>
@@ -80,16 +80,17 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table table-bordered table-responsive align-middle">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="2" class="align-middle">Buffs</th>
+                                <th scope="col" colspan="2" class="title"> <img src=@t.PSkillIcon
+                                    class="img-thumbnail"> @t.PSkill1N - Buff</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><img src=@t.PSkill1A class="align-middle"> @t.PSkill1B</td>
-                                <td><img src=@t.PSkill2A class="align-middle"> @t.PSkill2B</td>
+                                <td><img src=@t.PSkill1A class=""> @t.PSkill1B</td>
+                                <td><img src=@t.PSkill2A class=""> @t.PSkill2B</td>
                             </tr>
                         </tbody>
                     </table>

@@ -8,8 +8,8 @@ namespace DigitalNetWeb.Data.Models
         public string? ASkillName { get; set; }
         public string? ASkillIcon { get; set; }
         public string? ASkillCD { get; set; }
-
         public string? ASkillD { get; set; }
+        public string? PSkillIcon { get; set; }
         public string? PSkill1N { get; set; }
         public string? PSkill1B { get; set; }
         public string? PSkill1A { get; set; }

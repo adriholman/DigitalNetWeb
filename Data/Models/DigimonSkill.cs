@@ -17,7 +17,6 @@
         public string? Lv { get; set; }
         public string? Effect { get; set; }
         public string? EffectName { get; set; }
-        public string? Description { get; set; }
         public int position { get; set; }
         /*
         public string calculateSkill(int sklv)

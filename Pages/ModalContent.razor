@@ -10,11 +10,48 @@
         </div>
     </div>
     <div class="modal-body">
+        
         @if (ob is Digimon)
         {
-            <div class="row row-cols-auto">
+            Digimon d = (Digimon)ob;
+            <div class="row">
                 <div class="col">
                     <img src=@ob.ModelLink class="img-fluid">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="9">Base Stats Lv1/100%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="col">HP</th>
+                                <th scope="col">DS</th>
+                                <th scope="col">AT</th>
+                                <th scope="col">AS</th>
+                                <th scope="col">CT</th>
+                                <th scope="col">HT</th>
+                                <th scope="col">DE</th>
+                                <th scope="col">BL</th>
+                                <th scope="col">EV</th>
+                            </tr>
+                            <tr>
+                                <th>@d.DigimonStat.Hp</th>
+                                <td>@d.DigimonStat.Ds</td>
+                                <td>@d.DigimonStat.At</td>
+                                <td>@d.DigimonStat.AS</td>
+                                <td>@d.DigimonStat.Ct</td>
+                                <td>@d.DigimonStat.Ht</td>
+                                <td>@d.DigimonStat.De</td>
+                                <td>@d.DigimonStat.Bl</td>
+                                <td>@d.DigimonStat.Ev</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         }
@@ -27,7 +64,7 @@
             Tamer t = (Tamer)ob;
             <div class="row">
                 <div class="col">
-                    <img src=@ob.ModelLink class="img">
+                    <img src=@ob.ModelLink class="img-fluid">
                 </div>
             </div>
             <div class="row">

@@ -24,6 +24,36 @@
                     <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="col">Attribute</th>
+                                <th scope="col">Element</th>
+                                <th scope="col">Attacker</th>
+                                <th scope="col">Families</th>
+                            </tr>
+                            <tr>
+                                <td><img src=@d.Attribute class="img"></td>
+                                <td><img src=@d.ElementalAttribute class=""></td>
+                                <td><img src=@d.AttackerType class="img"></td>
+                                <td>
+                                    @if(@d.Family1 != ""){<img src=@d.Family1 class="img">}
+                                    @if(@d.Family2 != ""){<img src=@d.Family2 class="img">}
+                                    @if(@d.Family3 != ""){<img src=@d.Family3 class="img">}
+                                    @if(@d.Family4 != ""){<img src=@d.Family4 class="img">}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
                                 <th scope="col" colspan="9">Base Stats Lv1/100%</th>
                             </tr>
                         </thead>
@@ -40,7 +70,7 @@
                                 <th scope="col">EV</th>
                             </tr>
                             <tr>
-                                <th>@d.DigimonStat.Hp</th>
+                                <td>@d.DigimonStat.Hp</td>
                                 <td>@d.DigimonStat.Ds</td>
                                 <td>@d.DigimonStat.At</td>
                                 <td>@d.DigimonStat.AS</td>
@@ -50,6 +80,52 @@
                                 <td>@d.DigimonStat.Bl</td>
                                 <td>@d.DigimonStat.Ev</td>
                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="9">Skills</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var s in @d.DigimonSkills)
+                            {
+                            <tr>
+                                <th scope="col" colspan="2" class="title"><img src=@s.IconLink class="img-thumbnail">
+                                    @s.SkillName</th>
+                            </tr>
+
+                            <tr>
+                                <th scope="col">Element</th>
+                                <td scope="col" colspan="2" class=""><img src=@s.ElementIcon class="">
+                                    @s.Element</td>
+                            </tr>                            
+                            <tr>
+                                <th scope="col">SP</th>
+                                <td>@s.Sp</td>
+                            </tr>  
+                            <tr>
+                                <th scope="col">Digisoul</th>
+                                <td>@s.Ds</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Cooldown</th>
+                                <td>@s.Cd seconds</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Damage Lv0</th>
+                                <td>@s.Dmglv0</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Damage Lv25</th>
+                                <td>@s.CalculateSkill(25)</td>
+                            </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -83,7 +159,7 @@
                                 <th scope="col">DE</th>
                             </tr>
                             <tr>
-                                <th>@t.AT</th>
+                                <td>@t.AT</td>
                                 <td>@t.DE</td>
                                 <td>@t.DS</td>
                                 <td>@t.HP</td>

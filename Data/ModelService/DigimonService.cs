@@ -64,17 +64,18 @@ namespace DigitalNetWeb.Data.ModelService
                 if (row.IsNull("icon_name")) { d.IconLink = "/images/DigimonIcons/Unknown.png"; } else { d.IconLink = "/images/DigimonIcons/" + (String?)row.Field<Object>("icon_name") + ".png";}
                 if (row.IsNull("model_name")) { d.ModelLink = "/images/Missing.png"; } else { d.ModelLink = "/images/DigimonModels/" + (String?)row.Field<Object>("model_name") + ".png"; }
                 if (row.IsNull("evolution_tree")) { d.DigimonLine = ""; } else { d.DigimonLine = (String?)row.Field<Object>("evolution_tree"); }
-                if (row.IsNull("stage")) { d.Stage = ""; } else { d.Stage = (String?)row.Field<Object>("stage"); }
+                if (row.IsNull("stage")) { d.Stage = ""; } else { d.Stage = "/images/Stages/" + (String?)row.Field<Object>("stage") + ".png"; }
                 if (row.IsNull("digimon_rank")) { d.Rank = ""; } else { d.Rank = (String?)row.Field<Object>("digimon_rank"); }
-                if (row.IsNull("digimon_attribute")) { d.Attribute = ""; } else { d.Attribute = (String?)row.Field<Object>("digimon_attribute"); }
-                if (row.IsNull("element")) { d.ElementalAttribute = ""; } else { d.ElementalAttribute = (String?)row.Field<Object>("element"); }
-                if (row.IsNull("attacker_type")) { d.AttackerType = ""; } else { d.AttackerType = (String?)row.Field<Object>("attacker_type"); }
-                d.Family1 = (String?)row.Field<Object>("first_family");
-                d.Family2 = (String?)row.Field<Object>("second_family");
-                d.Family3 = (String?)row.Field<Object>("third_family");
-                d.Family4 = (String?)row.Field<Object>("fourth_family");
+                if (row.IsNull("digimon_attribute")) { d.Attribute = ""; } else { d.Attribute = "/images/Attributes/" + (String?)row.Field<Object>("digimon_attribute") + ".png"; }
+                if (row.IsNull("element")) { d.ElementalAttribute = ""; } else { d.ElementalAttribute = "/images/Elements/" + (String?)row.Field<Object>("element") + ".png"; }
+                if (row.IsNull("attacker_type")) { d.AttackerType = ""; } else { d.AttackerType = "/images/Attackers/" + (String?)row.Field<Object>("attacker_type") + ".png"; }
+                if (row.IsNull("first_family")) { d.Family1 = ""; } else {d.Family1 = "/images/Families/" + (String?)row.Field<Object>("first_family") + ".png";}
+                if (row.IsNull("second_family")) { d.Family2 = ""; } else {d.Family2 = "/images/Families/" + (String?)row.Field<Object>("second_family") + ".png";}
+                if (row.IsNull("third_family")) { d.Family3 = ""; } else {d.Family3 = "/images/Families/" + (String?)row.Field<Object>("third_family") + ".png";}
+                if (row.IsNull("fourth_family")) { d.Family4 = ""; } else {d.Family4 = "/images/Families/" + (String?)row.Field<Object>("fourth_family") + ".png";}
                 d.LvRequired = (String?)row.Field<Object>("level");
                 d.DigimonStat = new DigimonStatService().getDigiStat(d.Code);
+                d.DigimonSkills = new DigimonSkillService().searchDigimonSkills(d.Code);
                 ddb.Add(d);
             }
             //ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));

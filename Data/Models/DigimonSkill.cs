@@ -18,6 +18,7 @@
         public string? Effect { get; set; }
         public string? EffectName { get; set; }
         public int position { get; set; }
+        public string? ElementIcon {get; set;}
         /*
         public string calculateSkill(int sklv)
         {
@@ -30,18 +31,25 @@
             }
             return lv;
         }
-
-        public string newCalculateSkill(int sklv)
+         */
+        public string CalculateSkill(int sklv)
         {
             string lv = "";
-            if (!Dmglv0.Equals("") & !Dmglv10.Equals(""))
+            if (Dmglv0 !=0 && DmgIncrease != 0)
             {
-                double skillInc = (int.Parse(Dmglv0) - int.Parse(Dmglv25)) / 25;
-                double lvSK = int.Parse(Dmglv0) + (skillInc * (sklv - 1));
+                double lvSK = Dmglv0 + (DmgIncrease * sklv);
                 lv = lvSK.ToString();
+            }
+            else
+            {
+                if (Dmglv0 != 0 && Dmglv25 != 0)
+                {
+                    double skillInc = (Dmglv0 - Dmglv25) / 25;
+                    double lvSK = Dmglv0 + (skillInc * sklv);
+                    lv = lvSK.ToString();
+                }
             }
             return lv;
         }
-        */
     }
 }

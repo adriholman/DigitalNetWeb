@@ -25,11 +25,12 @@ namespace DigitalNetWeb.Data.ModelService
             {
                 DigimonSkill ds = new DigimonSkill();
                 ds.Code = (int)row.Field<long>("id");
-                ds.SkillName = (String)row.Field<Object>("name");
-                ds.IconLink = "wwwroot/DigimonSkills/" + (String)row.Field<Object>("icon name") + ".png";
-                ds.DigimonName = (String)row.Field<Object>("digimon");
-                ds.DigimonEvoTree = (String)row.Field<Object>("evolution tree");
-                ds.Element = (String)row.Field<Object>("element");
+                ds.SkillName = (String?)row.Field<Object>("name");
+                ds.IconLink = "images/DigimonSkills/" + (String?)row.Field<Object>("icon name") + ".png";
+                ds.DigimonName = (String?)row.Field<Object>("digimon");
+                ds.DigimonEvoTree = (String?)row.Field<Object>("evolution tree");
+                ds.Element = (String?)row.Field<Object>("element");
+                ds.ElementIcon = "images/Elements/" + (String?)row.Field<Object>("element") + ".png";
                 if (row.IsNull("cd")) { } else { ds.Cd = (int)row.Field<long>("cd"); }
                 if (row.IsNull("ds")) { } else { ds.Ds = ((int)row.Field<long>("ds")); }
                 if (row.IsNull("sp")) { } else { ds.Sp = ((int)row.Field<long>("sp")); }
@@ -37,9 +38,9 @@ namespace DigitalNetWeb.Data.ModelService
                 if (row.IsNull("lv0 dmg")) { ds.Dmglv0 = 0; } else { ds.Dmglv0 = (int)row.Field<long>("lv0 dmg"); }
                 if (row.IsNull("lv25 dmg")) { ds.Dmglv25 = 0; } else { ds.Dmglv25 = (int)row.Field<long>("lv25 dmg"); }
                 if (row.IsNull("skill_increase")) { ds.DmgIncrease = 0; } else { ds.DmgIncrease = (int)row.Field<long>("skill_increase"); }
-                if (row.IsNull("description")) { } else { ds.Description = (String)row.Field<Object>("description"); }
-                if (row.IsNull("skill_buff")) { } else { ds.Effect = (String)row.Field<Object>("skill_buff"); }
-                if (row.IsNull("skill_buff_name")) { } else { ds.EffectName = (String)row.Field<Object>("skill_buff_name"); }
+                if (row.IsNull("description")) { } else { ds.Description = (String?)row.Field<Object>("description"); }
+                if (row.IsNull("skill_buff")) { } else { ds.Effect = (String?)row.Field<Object>("skill_buff"); }
+                if (row.IsNull("skill_buff_name")) { } else { ds.EffectName = (String?)row.Field<Object>("skill_buff_name"); }
                 if (row.IsNull("position")) { } else { ds.position = (int)row.Field<long>("position"); }
                 skills.Add(ds);
             }

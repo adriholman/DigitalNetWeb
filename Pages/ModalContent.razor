@@ -29,15 +29,17 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <th scope="col">Rank</th>
                                 <th scope="col">Attribute</th>
                                 <th scope="col">Element</th>
                                 <th scope="col">Attacker</th>
                                 <th scope="col">Families</th>
                             </tr>
                             <tr>
-                                <td><img src=@d.Attribute class="img"></td>
-                                <td><img src=@d.ElementalAttribute class=""></td>
-                                <td><img src=@d.AttackerType class="img"></td>
+                                <td><img src=@d.RankIcon class="img"></td>
+                                <td><img src=@d.AttributeIcon class="img"></td>
+                                <td><img src=@d.ElementIcon class=""></td>
+                                <td><img src=@d.AttackerIcon class="img"></td>
                                 <td>
                                     @if(@d.Family1 != ""){<img src=@d.Family1 class="img">}
                                     @if(@d.Family2 != ""){<img src=@d.Family2 class="img">}

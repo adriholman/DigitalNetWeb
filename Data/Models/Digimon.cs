@@ -5,10 +5,15 @@
         public Digimon() { }
         public string? DigimonLine { get; set; }
         public string? Stage { get; set; }
+        public string? StageIcon { get; set; }
         public string? Rank { get; set; }
+        public string? RankIcon { get; set; }
         public string? Attribute { get; set; }
-        public string? ElementalAttribute { get; set; }
-        public string? AttackerType { get; set; }
+        public string? AttributeIcon { get; set; }
+        public string? Element { get; set; }
+        public string? ElementIcon { get; set; }
+        public string? Attacker { get; set; }
+        public string? AttackerIcon { get; set; }
         public string? Family1 { get; set; }
         public string? Family2 { get; set; }
         public string? Family3 { get; set; }

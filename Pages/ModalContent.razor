@@ -64,72 +64,71 @@
                 </div>
             </div>
             <div class="row">
-            <div class="col">
-                <table class="table table-bordered table-responsive">
-                    <thead>
-                        <tr>
-                            <th scope="col" colspan="9">Base Stats Lv1/100%</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="col">HP</th>
-                            <th scope="col">DS</th>
-                            <th scope="col">AT</th>
-                            <th scope="col">AS</th>
-                            <th scope="col">CT</th>
-                            <th scope="col">HT</th>
-                            <th scope="col">DE</th>
-                            <th scope="col">EV</th>
-                        </tr>
-                        <tr>
-                            <td>@d.DigimonStat.Hp</td>
-                            <td>@d.DigimonStat.Ds</td>
-                            <td>@d.DigimonStat.At</td>
-                            <td>@d.DigimonStat.AS</td>
-                            <td>@d.DigimonStat.Ct</td>
-                            <td>@d.DigimonStat.Ht</td>
-                            <td>@d.DigimonStat.De</td>
-                            <td>@d.DigimonStat.Ev</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="col">
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="9">Base Stats Lv1/100%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="col">HP</th>
+                                <th scope="col">DS</th>
+                                <th scope="col">AT</th>
+                                <th scope="col">AS</th>
+                                <th scope="col">CT</th>
+                                <th scope="col">HT</th>
+                                <th scope="col">DE</th>
+                                <th scope="col">EV</th>
+                            </tr>
+                            <tr>
+                                <td>@d.DigimonStat.Hp</td>
+                                <td>@d.DigimonStat.Ds</td>
+                                <td>@d.DigimonStat.At</td>
+                                <td>@d.DigimonStat.AS</td>
+                                <td>@d.DigimonStat.Ct</td>
+                                <td>@d.DigimonStat.Ht</td>
+                                <td>@d.DigimonStat.De</td>
+                                <td>@d.DigimonStat.Ev</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
             <div class="row">
-            <div class="col">
-                <table class="table table-bordered table-responsive">
-                    <thead>
-                        <tr>
-                            <th scope="col" colspan="2">Skills</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="group" role="group" aria-label="">
-                                    @foreach (var s in @d.DigimonSkills)
-                                        {
-                                        <th scope="col" colspan="2" class="title">
-                                            <img src=@s.IconLink class="img-thumbnail" data-toggle="collapse"
-                                        data-target="#@s.ToTypeID()" aria-expanded="false"
-                                        aria-controls="collapseExample">
-                                    @s.SkillName</th>
-                                            
+                <div class="col">
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="2">Skills</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                    <div class="" role="group" aria-label="">
+                        @foreach (var s in @d.DigimonSkills)
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    <table class="table table-bordered table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" colspan="2" class="title" data-toggle="collapse" data-target="#@s.ToTypeID()"
+                                                    aria-expanded="false" aria-controls="collapseExample">
+                                                    <img src=@s.IconLink class="img-thumbnail" >
+                                                    @s.SkillName
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             <div class="collapse" id=@s.ToTypeID()>
-                                                <table class="table table-bordered table-responsive">
-                                                    <thead>
-                                                        <tr>
-                                        <th scope="col" colspan="2" class="title">
-                                    @s.SkillName</th>
-                                                        </tr>
-                                                    </thead>
+                                                <table class="table table-responsive">
                                                     <tbody>
                                                         <tr>
                                                             <th scope="col">Element</th>
-                                                            <td scope="col" colspan="2" class=""><img src=@s.ElementIcon
-                                                            class="">
-                                                                @s.Element</td>
+                                                            <td scope="col" colspan="2" class=""><img src=@s.ElementIcon class=""> @s.Element</td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="col">SP</th>
@@ -154,11 +153,15 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                        }
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    </td>
+                     </tr>                                                        
+                    </tbody>
                     </table>
                 </div>
             </div>
@@ -176,30 +179,30 @@
                 </div>
             </div>
             <div class="row">
-            <div class="col">
-                <table class="table table-bordered table-responsive">
-                    <thead>
-                        <tr>
-                            <th scope="col" colspan="4">Base Stats Lv1</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="col">HP</th>
-                            <th scope="col">DS</th>
-                            <th scope="col">AT</th>
-                            <th scope="col">DE</th>
-                        </tr>
-                        <tr>
-                            <td>@t.AT</td>
-                            <td>@t.DE</td>
-                            <td>@t.DS</td>
-                            <td>@t.HP</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="col">
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="4">Base Stats Lv1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="col">HP</th>
+                                <th scope="col">DS</th>
+                                <th scope="col">AT</th>
+                                <th scope="col">DE</th>
+                            </tr>
+                            <tr>
+                                <td>@t.AT</td>
+                                <td>@t.DE</td>
+                                <td>@t.DS</td>
+                                <td>@t.HP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
             <div class="row">
                 <div class="col">
                     <table class="table table-bordered table-responsive">

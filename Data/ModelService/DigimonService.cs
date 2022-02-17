@@ -34,10 +34,10 @@ namespace DigitalNetWeb.Data.ModelService
                 if (row.IsNull("attribute_icon")) { d.AttributeIcon = ""; } else { d.AttributeIcon = "/images/Attributes/" + (String?)row.Field<Object>("attribute_icon") + ".png"; }
                 if (row.IsNull("element_icon")) { d.ElementIcon = ""; } else { d.ElementIcon = "/images/Elements/" + (String?)row.Field<Object>("element_icon") + ".png"; }
                 if (row.IsNull("attacker_icon")) { d.AttackerIcon = ""; } else { d.AttackerIcon = "/images/Attackers/" + (String?)row.Field<Object>("attacker_icon") + ".png"; }
-                if (row.IsNull("first_family")) { d.Family1 = ""; } else {d.Family1 = "/images/Families/" + (String?)row.Field<Object>("first_family") + ".png";}
-                if (row.IsNull("second_family")) { d.Family2 = ""; } else {d.Family2 = "/images/Families/" + (String?)row.Field<Object>("second_family") + ".png";}
-                if (row.IsNull("third_family")) { d.Family3 = ""; } else {d.Family3 = "/images/Families/" + (String?)row.Field<Object>("third_family") + ".png";}
-                if (row.IsNull("fourth_family")) { d.Family4 = ""; } else {d.Family4 = "/images/Families/" + (String?)row.Field<Object>("fourth_family") + ".png";}
+                if (row.IsNull("first_family")) { d.Family1 = ""; } else {d.Family1 = "/images/Families/" + (String?)row.Field<Object>("first_f_icon") + ".png";}
+                if (row.IsNull("second_family")) { d.Family2 = ""; } else {d.Family2 = "/images/Families/" + (String?)row.Field<Object>("second_f_icon") + ".png";}
+                if (row.IsNull("third_family")) { d.Family3 = ""; } else {d.Family3 = "/images/Families/" + (String?)row.Field<Object>("third_f_icon") + ".png";}
+                if (row.IsNull("fourth_family")) { d.Family4 = ""; } else {d.Family4 = "/images/Families/" + (String?)row.Field<Object>("fourth_f_icon") + ".png";}
                 d.LvRequired = (String?)row.Field<Object>("level");
                 d.DigimonStat = new DigimonStatService().getDigiStat(d.Code);
                 d.DigimonSkills = new DigimonSkillService().searchDigimonSkills(d.Code);

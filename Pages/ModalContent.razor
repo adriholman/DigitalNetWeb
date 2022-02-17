@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="modal-body">
-        
+
         @if (ob is Digimon)
         {
             Digimon d = (Digimon)ob;
@@ -24,7 +24,7 @@
                     <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -41,10 +41,22 @@
                                 <td><img src=@d.ElementIcon class=""></td>
                                 <td><img src=@d.AttackerIcon class="img"></td>
                                 <td>
-                                    @if(@d.Family1 != ""){<img src=@d.Family1 class="img">}
-                                    @if(@d.Family2 != ""){<img src=@d.Family2 class="img">}
-                                    @if(@d.Family3 != ""){<img src=@d.Family3 class="img">}
-                                    @if(@d.Family4 != ""){<img src=@d.Family4 class="img">}
+                                    @if (@d.Family1 != "")
+                                    {
+                                        <img src=@d.Family1 class="img">
+                                    }
+                                    @if (@d.Family2 != "")
+                                    {
+                                        <img src=@d.Family2 class="img">
+                                    }
+                                    @if (@d.Family3 != "")
+                                    {
+                                        <img src=@d.Family3 class="img">
+                                    }
+                                    @if (@d.Family4 != "")
+                                    {
+                                        <img src=@d.Family4 class="img">
+                                    }
                                 </td>
                             </tr>
                         </tbody>
@@ -68,7 +80,6 @@
                                 <th scope="col">CT</th>
                                 <th scope="col">HT</th>
                                 <th scope="col">DE</th>
-                                <th scope="col">BL</th>
                                 <th scope="col">EV</th>
                             </tr>
                             <tr>
@@ -79,7 +90,6 @@
                                 <td>@d.DigimonStat.Ct</td>
                                 <td>@d.DigimonStat.Ht</td>
                                 <td>@d.DigimonStat.De</td>
-                                <td>@d.DigimonStat.Bl</td>
                                 <td>@d.DigimonStat.Ev</td>
                             </tr>
                         </tbody>
@@ -91,44 +101,67 @@
                     <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="9">Skills</th>
+                                <th scope="col" colspan="2">Skills</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var s in @d.DigimonSkills)
-                            {
                             <tr>
-                                <th scope="col" colspan="2" class="title"><img src=@s.IconLink class="img-thumbnail">
-                                    @s.SkillName</th>
-                            </tr>
-
-                            <tr>
-                                <th scope="col">Element</th>
-                                <td scope="col" colspan="2" class=""><img src=@s.ElementIcon class="">
-                                    @s.Element</td>
-                            </tr>                            
-                            <tr>
-                                <th scope="col">SP</th>
-                                <td>@s.Sp</td>
-                            </tr>  
-                            <tr>
-                                <th scope="col">Digisoul</th>
-                                <td>@s.Ds</td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Cooldown</th>
-                                <td>@s.Cd seconds</td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Damage Lv0</th>
-                                <td>@s.Dmglv0</td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Damage Lv25</th>
-                                <td>@s.CalculateSkill(25)</td>
-                            </tr>
-                            }
-                        </tbody>
+                                <td>
+                    <div class="" role="group" aria-label="">
+                        @foreach (var s in @d.DigimonSkills)
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    <table class="table table-bordered table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" colspan="2" class="title" data-toggle="collapse" data-target="#@s.ToTypeID()"
+                                                    aria-expanded="false" aria-controls="collapseExample">
+                                                    <img src=@s.IconLink class="img-thumbnail" >
+                                                    @s.SkillName
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <div class="collapse" id=@s.ToTypeID()>
+                                                <table class="table table-responsive">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="col">Element</th>
+                                                            <td scope="col" colspan="2" class=""><img src=@s.ElementIcon class=""> @s.Element</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="col">SP</th>
+                                                            <td>@s.Sp</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="col">Digisoul</th>
+                                                            <td>@s.Ds</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="col">Cooldown</th>
+                                                            <td>@s.Cd seconds</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="col">Damage Lv0</th>
+                                                            <td>@s.Dmglv0</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="col">Damage Lv25</th>
+                                                            <td>@s.CalculateSkill(25)</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    </td>
+                     </tr>                                                        
+                    </tbody>
                     </table>
                 </div>
             </div>

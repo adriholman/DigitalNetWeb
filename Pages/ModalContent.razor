@@ -128,7 +128,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <th scope="col">Element</th>
-                                                            <td scope="col" colspan="2" class=""><img src=@s.ElementIcon class=""> @s.Element</td>
+                                                            <td scope="col" class=""><img src=@s.ElementIcon class=""> @s.Element</td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="col">SP</th>
@@ -150,6 +150,12 @@
                                                             <th scope="col">Damage Lv25</th>
                                                             <td>@s.CalculateSkill(25)</td>
                                                         </tr>
+                                                        @if(@s.Effect != null){
+                                                        <tr>
+                                                            <th scope="col">Effect</th>
+                                                            <td width="50%">@s.Effect</td>
+                                                        </tr>
+                                                        }
                                                     </tbody>
                                                 </table>
                                             </div>

@@ -24,7 +24,7 @@ namespace DigitalNetWeb.Data.ModelService
                 i.Code = (int)row.Field<long>("id");
                 if (row.IsNull("korean_name")) { i.KorName = ""; } else { i.KorName = (String?)row.Field<String>("korean_name"); }
                 if (row.IsNull("name")) { i.EngName = ""; } else { i.EngName = (String?)row.Field<Object>("name"); }
-                if (row.IsNull("icon_name")) { i.IconLink = "/images/Missing_Image.png"; } else { i.IconLink = "/images/ItemIcons/" + (String?)row.Field<Object>("icon_name") + ".png"; }
+                if (row.IsNull("icon_name") || !File.Exists("/images/ItemIcons/" + (String?)row.Field<Object>("icon_name") + ".png")) { i.IconLink = "/images/Kuramon.gif"; } else { i.IconLink = "/images/ItemIcons/" + (String?)row.Field<Object>("icon_name") + ".png"; }
                 if (row.IsNull("category")) { i.category = ""; } else { i.category = (String?)row.Field<Object>("category"); }
                 if (row.IsNull("description")) { i.Description = ""; } else { i.Description = (String?)row.Field<Object>("description"); }
                 s.Add(i);

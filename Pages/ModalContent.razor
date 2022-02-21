@@ -29,14 +29,20 @@
                         </thead>
                         <tbody>
                             <tr>
+                                @if(d.Rank!="None"){
                                 <th scope="col">Rank</th>
+                                }
+                                <th scope="col">Stage</th>
                                 <th scope="col">Attribute</th>
                                 <th scope="col">Element</th>
                                 <th scope="col">Attacker</th>
                                 <th scope="col">Families</th>
                             </tr>
                             <tr>
+                                @if(d.Rank!="None"){
                                 <td><img src=@d.RankIcon class="img"></td>
+                                }
+                                <td><img src=@d.StageIcon class="img2"></td>
                                 <td><img src=@d.AttributeIcon class="img"></td>
                                 <td><img src=@d.ElementIcon class=""></td>
                                 <td><img src=@d.AttackerIcon class="img"></td>
@@ -56,6 +62,51 @@
                                     @if (@d.Family4 != "")
                                     {
                                         <img src=@d.Family4 class="img">
+                                    }
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="col">Unlocked with item</th>
+                                <td>
+                                    @foreach (var item in d.UnlockedItems)
+                                    {
+                                        <img src=@item.IconLink class="img">
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Evolve with item</th>
+                                <td>
+                                    @foreach (var item in d.EvolveItems)
+                                    {
+                                        <img src=@item.IconLink class="img">
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Level required</th>
+                                <td>@d.LvRequired</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Digimon required</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Ride</th>
+                                <td>
+                                    @foreach (var item in d.RideItems)
+                                    {
+                                        <img src=@item.IconLink class="img">
                                     }
                                 </td>
                             </tr>
@@ -117,7 +168,7 @@
                                             <tr>
                                                 <th scope="col" colspan="2" class="title" data-toggle="collapse" data-target="#@s.ToTypeID()"
                                                     aria-expanded="false" aria-controls="collapseExample">
-                                                    <img src=@s.IconLink class="img-thumbnail" >
+                                                    <img src=@s.IconLink class="img-thumbnail">
                                                     @s.SkillName
                                                 </th>
                                             </tr>

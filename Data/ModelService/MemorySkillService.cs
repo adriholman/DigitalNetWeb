@@ -25,7 +25,11 @@ namespace DigitalNetWeb.Data.ModelService
                 ms.Type = (String?)row.Field<object>("type");
                 ms.KorName = (String?)row.Field<object>("korean_name");
                 ms.EngName = (String?)row.Field<object>("dub_name");
-                if (row.IsNull("icon_link")) { ms.IconLink = "https://i.imgur.com/dEBKEO7.png"; } else { ms.IconLink = (String?)row.Field<Object>("icon_link"); }
+                if (row.IsNull("icon_name") || !File.Exists(Path.GetFullPath("wwwroot") + "/images/ItemIcons/" + (String?)row.Field<Object>("icon_name") + ".png")) { 
+                    ms.IconLink = "/images/Kuramon.png";
+                } else { 
+                    ms.IconLink = "/images/ItemIcons/" + (String?)row.Field<Object>("icon_name") + ".png"; 
+                }
                 ms.Description = (String?)row.Field<object>("description");
                 ms.Description_es = (String?)row.Field<object>("description_es");
                 ms.Level_1 = (String?)row.Field<object>("lv_1");
@@ -54,7 +58,11 @@ namespace DigitalNetWeb.Data.ModelService
                 ms.Type = (String?)row.Field<object>("type");
                 ms.KorName = (String?)row.Field<object>("korean_name");
                 ms.EngName = (String?)row.Field<object>("dub_name");
-                if (row.IsNull("icon_link")) { ms.IconLink = "https://i.imgur.com/dEBKEO7.png"; } else { ms.IconLink = (String?)row.Field<Object>("icon_link"); }
+                if (row.IsNull("icon_name") || !File.Exists(Path.GetFullPath("wwwroot") + "/images/ItemIcons/" + (String?)row.Field<Object>("icon_name") + ".png")) { 
+                    ms.IconLink = "/images/Kuramon.png";
+                } else { 
+                    ms.IconLink = "/images/ItemIcons/" + (String?)row.Field<Object>("icon_name") + ".png"; 
+                }
                 ms.Description = (String?)row.Field<object>("description");
                 ms.Description_es = (String?)row.Field<object>("description_es");
                 ms.Bonus_low = (String?)row.Field<object>("low");

@@ -21,5 +21,8 @@
         public string? LvRequired { get; set; }
         public DigimonStat DigimonStat { get; set; }
         public List<DigimonSkill> DigimonSkills { get; set; }
+        public List<Item> UnlockedItems {get;set;}
+        public List<Item> EvolveItems {get;set;}
+        public List<Item> RideItems {get;set;}
     }
 }

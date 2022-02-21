@@ -26,6 +26,11 @@ namespace DigitalNetWeb.Data.ModelService
                 DigimonSkill ds = new DigimonSkill();
                 ds.Code = (int)row.Field<long>("id");
                 ds.SkillName = (String?)row.Field<Object>("name");
+                if (row.IsNull("icon name") || !File.Exists(Path.GetFullPath("wwwroot") + "/images/DigimonSkills/" + (String?)row.Field<Object>("icon name") + ".png")) { 
+                    ds.IconLink = "/images/Kuramon.png"; 
+                } else { 
+                    ds.IconLink = "/images/DigimonSkills/" + (String?)row.Field<Object>("icon name") + ".png"; 
+                }
                 ds.IconLink = "images/DigimonSkills/" + (String?)row.Field<Object>("icon name") + ".png";
                 ds.DigimonName = (String?)row.Field<Object>("digimon");
                 ds.DigimonEvoTree = (String?)row.Field<Object>("evolution tree");

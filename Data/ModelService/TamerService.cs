@@ -35,10 +35,10 @@ namespace DigitalNetWeb.Data.ModelService
                 ds.ASkillCD = (String?)row.Field<object>("active_skill_cd");
                 ds.PSkill1N = (String?)row.Field<object>("first_passive");
                 ds.PSkill1B = (String?)row.Field<object>("first_bonus");
-                ds.PSkill1A = (String?)row.Field<object>("first_attribute");
+                ds.PSkill1A = "/images/Attributes/" + (String?)row.Field<object>("first_a_icon") + ".png";
                 ds.PSkill2N = (String?)row.Field<object>("second_passive");
                 ds.PSkill2B = (String?)row.Field<object>("second_bonus");
-                ds.PSkill2A = (String?)row.Field<object>("second_attribute");
+                ds.PSkill2A = "/images/Attributes/" + (String?)row.Field<object>("second_a_icon") + ".png";
                 ds.AT = (int)row.Field<long>("at");
                 ds.DE = (int)row.Field<long>("de");
                 ds.HP = (int)row.Field<long>("hp");

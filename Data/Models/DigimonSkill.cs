@@ -44,7 +44,7 @@
             {
                 if (Dmglv0 != 0 && Dmglv25 != 0)
                 {
-                    double skillInc = (Dmglv0 - Dmglv25) / 25;
+                    double skillInc = (Dmglv25 - Dmglv0) / 25;
                     double lvSK = Dmglv0 + (skillInc * sklv);
                     lv = lvSK.ToString();
                 }

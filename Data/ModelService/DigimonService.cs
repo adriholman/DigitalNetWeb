@@ -53,6 +53,7 @@ namespace DigitalNetWeb.Data.ModelService
                 d.UnlockedItems = new ItemService().getItembyDigimon(d.Code, "unlock");
                 d.EvolveItems = new ItemService().getItembyDigimon(d.Code, "evolve");
                 d.RideItems = new ItemService().getItembyDigimon(d.Code, "ride");
+                d.DRequired = new DRequirementService().getDigimonRequired(d.EngName);
                 ddb.Add(d);
             }
             //ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));

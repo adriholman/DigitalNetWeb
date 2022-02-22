@@ -99,7 +99,12 @@
                             </tr>
                             <tr>
                                 <th scope="col">Digimon required</th>
-                                <td></td>
+                                <td>
+                                    @foreach (var item in d.DRequired)
+                                    {
+                                        <img src=@item.IconLink class="img">
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="col">Ride</th>

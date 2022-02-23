@@ -1,3 +1,0 @@
-﻿namespace DigitalNetWeb.Data.Models{
-    
-}

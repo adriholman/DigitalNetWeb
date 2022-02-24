@@ -4,5 +4,7 @@ namespace DigitalNetWeb.Data.Models
     {
         public DRequired(){}
         public String? Required { set; get; }
+
+        public Digimon RequiredD { set; get; }
     }
 }

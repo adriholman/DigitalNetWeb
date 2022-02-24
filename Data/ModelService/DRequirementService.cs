@@ -29,7 +29,17 @@ namespace DigitalNetWeb.Data.ModelService
                     d.EngName = (String?)row.Field<Object>("dub_Name");
                     d.Required = (String?)row.Field<Object>("required");
                     d.IconLink = "/images/DigimonIcons/" + d.Required + ".png";
-                    DigimonLine dl = new DigimonLineService().getDigimonLine(d.EngName,d.Required);
+                    DigimonLine dl = new DigimonLineService().getDigimonLine(d.Required, d.EngName);
+                    if (dl != null)
+                    {
+                        Digimon di = new DigimonService().getDigimon(dl.EngName, d.Required);
+                        if (di != null)
+                        {
+                            Console.WriteLine(dl.EngName + " " + di.EngName);
+                            d.RequiredD = di;
+                        }
+                    }
+
                     required.Add(d);
                 }
             }

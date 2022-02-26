@@ -80,7 +80,7 @@
                                 <td>
                                     @foreach (var item in d.UnlockedItems)
                                     {
-                                        <img src=@item.IconLink class="img">
+                                        <img src=@item.IconLink class="img" data-bs-toggle="tooltip" data-bs-placement="top" title=@item.EngName>
                                     }
                                 </td>
                             </tr>
@@ -89,7 +89,7 @@
                                 <td>
                                     @foreach (var item in d.EvolveItems)
                                     {
-                                        <img src=@item.IconLink class="img">
+                                        <img src=@item.IconLink class="img" data-bs-toggle="tooltip" data-bs-placement="top" title=@item.EngName>
                                     }
                                 </td>
                             </tr>
@@ -102,7 +102,7 @@
                                 <td>
                                     @foreach (var item in d.DRequired)
                                     {
-
+                                        <img src=@item.IconLink class="img" data-bs-toggle="tooltip" data-bs-placement="top" title=@item.RequiredD.ToNameLine()>
                                     }
                                 </td>
                             </tr>
@@ -111,7 +111,7 @@
                                 <td>
                                     @foreach (var item in d.RideItems)
                                     {
-                                        <img src=@item.IconLink class="img">
+                                        <img src=@item.IconLink class="img" data-bs-toggle="tooltip" data-bs-placement="top" title=@item.EngName>
                                     }
                                 </td>
                             </tr>

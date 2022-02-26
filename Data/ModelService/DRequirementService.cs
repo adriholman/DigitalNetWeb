@@ -35,7 +35,6 @@ namespace DigitalNetWeb.Data.ModelService
                         Digimon di = new DigimonService().getDigimon(dl.EngName, d.Required);
                         if (di != null)
                         {
-                            Console.WriteLine(dl.EngName + " " + di.EngName);
                             d.RequiredD = di;
                         }
                     }

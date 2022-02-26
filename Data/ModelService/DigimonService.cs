@@ -53,10 +53,63 @@ namespace DigitalNetWeb.Data.ModelService
                 d.UnlockedItems = new ItemService().getItembyDigimon(d.Code, "unlock");
                 d.EvolveItems = new ItemService().getItembyDigimon(d.Code, "evolve");
                 d.RideItems = new ItemService().getItembyDigimon(d.Code, "ride");
+                d.DRequired = new DRequirementService().getDigimonRequired(d.EngName);
                 ddb.Add(d);
             }
             //ddb.Sort((x, y) => (x.EngName ?? "").CompareTo(y.EngName));
             return ddb;
+        }
+
+        public Digimon getDigimon(string evolutionTree, string digimon)
+        {
+            if (dataSQL == null)
+            {
+                dataSQL = new DBConnection();
+            }
+            Digimon d = new Digimon();
+            string query = "SELECT * from digimon_view where dub_name='" + digimon + "' and evolution_tree ='" + evolutionTree + "'";
+            dataSQL.pullSQL(query);
+            DataTable myData = dataSQL.dataTable ?? new DataTable();
+            if (myData.Rows.Count == 1)
+            {
+                DataRow row = myData.Rows[0];
+                d.Code = (int)row.Field<long>("id");
+                if (row.IsNull("korean_name")) { d.KorName = ""; } else { d.KorName = (String?)row.Field<string>("korean_name"); }
+                if (row.IsNull("dub_name")) { d.EngName = ""; } else { d.EngName = (String?)row.Field<Object>("dub_name"); }
+                if (row.IsNull("icon_name") || !File.Exists(Path.GetFullPath("wwwroot") + "/images/DigimonIcons/" + (String?)row.Field<Object>("icon_name") + ".png")) { 
+                    d.IconLink = "/images/Kuramon.png"; 
+                } else { 
+                    d.IconLink = "/images/DigimonIcons/" + (String?)row.Field<Object>("icon_name") + ".png";
+                }
+                if (row.IsNull("model_name") || !File.Exists(Path.GetFullPath("wwwroot") + "/images/DigimonModels/" + (String?)row.Field<Object>("model_name") + ".png")) { 
+                    d.ModelLink = "/images/Tsumemon_404_Not_Found.png";
+                } else { 
+                    d.ModelLink = "/images/DigimonModels/" + (String?)row.Field<Object>("model_name") + ".png"; 
+                }
+                if (row.IsNull("evolution_tree")) { d.DigimonLine = ""; } else { d.DigimonLine = (String?)row.Field<Object>("evolution_tree"); }
+                if (row.IsNull("stage")) { d.StageIcon = ""; } else { d.StageIcon = "/images/Stages/" + (String?)row.Field<Object>("stage") + ".png"; }
+                if (row.IsNull("digimon_rank")) { d.Rank = "None"; } else { d.Rank = (String?)row.Field<Object>("digimon_rank"); }
+                if (row.IsNull("rank_icon") || ((String?)row.Field<Object>("digimon_rank")).Equals("None")) { d.RankIcon = ""; } else { d.RankIcon = "/images/Ranks/" + (String?)row.Field<Object>("digimon_rank") + ".png"; }
+                if (row.IsNull("attribute_icon")) { d.AttributeIcon = ""; } else { d.AttributeIcon = "/images/Attributes/" + (String?)row.Field<Object>("attribute_icon") + ".png"; }
+                if (row.IsNull("element_icon")) { d.ElementIcon = ""; } else { d.ElementIcon = "/images/Elements/" + (String?)row.Field<Object>("element_icon") + ".png"; }
+                if (row.IsNull("attacker_icon")) { d.AttackerIcon = ""; } else { d.AttackerIcon = "/images/Attackers/" + (String?)row.Field<Object>("attacker_icon") + ".png"; }
+                if (row.IsNull("first_family")) { d.Family1 = ""; } else {d.Family1 = "/images/Families/" + (String?)row.Field<Object>("first_f_icon") + ".png";}
+                if (row.IsNull("second_family")) { d.Family2 = ""; } else {d.Family2 = "/images/Families/" + (String?)row.Field<Object>("second_f_icon") + ".png";}
+                if (row.IsNull("third_family")) { d.Family3 = ""; } else {d.Family3 = "/images/Families/" + (String?)row.Field<Object>("third_f_icon") + ".png";}
+                if (row.IsNull("fourth_family")) { d.Family4 = ""; } else {d.Family4 = "/images/Families/" + (String?)row.Field<Object>("fourth_f_icon") + ".png";}
+                d.LvRequired = (String?)row.Field<Object>("level");
+                d.DigimonStat = new DigimonStatService().getDigiStat(d.Code);
+                d.DigimonSkills = new DigimonSkillService().searchDigimonSkills(d.Code);
+                d.UnlockedItems = new ItemService().getItembyDigimon(d.Code, "unlock");
+                d.EvolveItems = new ItemService().getItembyDigimon(d.Code, "evolve");
+                d.RideItems = new ItemService().getItembyDigimon(d.Code, "ride");
+                d.DRequired = new DRequirementService().getDigimonRequired(d.EngName);
+                return d;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

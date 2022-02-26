@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\Queries\DigimonLineByNames.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Queries\DigimonLineByNames.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\favicon.ico" />
     <None Include="wwwroot\images" />
   </ItemGroup>
@@ -21,5 +29,4 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
 </Project>

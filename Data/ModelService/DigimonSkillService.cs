@@ -31,7 +31,6 @@ namespace DigitalNetWeb.Data.ModelService
                 } else { 
                     ds.IconLink = "/images/DigimonSkills/" + (String?)row.Field<Object>("icon name") + ".png"; 
                 }
-                ds.IconLink = "images/DigimonSkills/" + (String?)row.Field<Object>("icon name") + ".png";
                 ds.DigimonName = (String?)row.Field<Object>("digimon");
                 ds.DigimonEvoTree = (String?)row.Field<Object>("evolution tree");
                 ds.Element = (String?)row.Field<Object>("element");

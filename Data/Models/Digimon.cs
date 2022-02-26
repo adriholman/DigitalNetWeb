@@ -24,5 +24,9 @@
         public List<Item> UnlockedItems {get;set;}
         public List<Item> EvolveItems {get;set;}
         public List<Item> RideItems {get;set;}
+        public List<DRequired> DRequired {get; set;}
+        public String ToNameLine(){
+            return EngName + "\n" + DigimonLine;
+        }
     }
 }

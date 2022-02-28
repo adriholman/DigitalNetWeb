@@ -25,11 +25,24 @@
 </div>
 
 <br>
-<div class="container">
+<div class="container-fluid">
     @if (ObjectList == null)
     {
-        <div class="d-flex justify-content-center">
-            <img src="/images/Bokomon_Tip1.png" class="img-fluid">
+        <div class="">
+            <div class="">
+                <div class="d-flex justify-content-center">
+                    <img src="/images/Bokomon_Tip1.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="">
+                <ul class="list-group-flush">
+                    <p class="h6 fw-bold">Last digimon added (in 90 days)</p>
+                    @foreach (var d in LatestDigimon)
+                    {
+                        <SearchCard DBO=d />
+                    }
+                </ul>
+            </div>
         </div>
     }
     else
@@ -59,6 +72,7 @@
 </div>
 @code {
     private DBObject[]? ObjectList;
+    private DBObject[]? LatestDigimon;
     private int PageIndex = 0;
     private int TotalPages = 0;
     private int IconsPerPage = 24; // number of icons you want shown on each page
@@ -69,6 +83,7 @@
     protected override void OnInitialized()
     {
         ObjectList = null;
+        LatestDigimon = new DigimonService().SearchDigimonByDays("-90 days").ToArray();
     }
 
     protected override async Task OnParametersSetAsync()

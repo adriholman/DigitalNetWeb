@@ -29,24 +29,28 @@
                         </thead>
                         <tbody>
                             <tr>
-                                @if(d.Rank!="None"){
                                 <th scope="col">Rank</th>
-                                }
-                                <th scope="col">Stage</th>
-                                <th scope="col">Attribute</th>
-                                <th scope="col">Element</th>
-                                <th scope="col">Attacker</th>
-                                <th scope="col">Families</th>
+                                <td width="50%">@if(d.Rank!="None"){<img src=@d.RankIcon class="img">}</td>
                             </tr>
                             <tr>
-                                @if(d.Rank!="None"){
-                                <td><img src=@d.RankIcon class="img"></td>
-                                }
-                                <td><img src=@d.StageIcon class="img2"></td>
-                                <td><img src=@d.AttributeIcon class="img"></td>
-                                <td><img src=@d.ElementIcon class=""></td>
-                                <td><img src=@d.AttackerIcon class="img"></td>
-                                <td>
+                                <th scope="col">Stage</th>
+                                <td width="50%"><img src=@d.StageIcon class="img2"></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Attribute</th>
+                                <td width="50%"><img src=@d.AttributeIcon class="img"></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Element</th>
+                                <td width="50%"><img src=@d.ElementIcon class=""></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Attacker</th>
+                                <td width="50%"><img src=@d.AttackerIcon class="img"></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Families</th>
+                                <td width="50%">
                                     @if (@d.Family1 != "")
                                     {
                                         <img src=@d.Family1 class="img">
@@ -76,8 +80,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="col">Unlocked with item</th>
-                                <td>
+                                <th scope="col">Unlocked with</th>
+                                <td width="50%">
                                     @foreach (var item in d.UnlockedItems)
                                     {
                                         <img src=@item.IconLink class="img" data-bs-toggle="tooltip" data-bs-placement="top" title=@item.EngName>
@@ -85,8 +89,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="col">Evolve with item</th>
-                                <td>
+                                <th scope="col">Evolve with</th>
+                                <td width="50%">
                                     @foreach (var item in d.EvolveItems)
                                     {
                                         <img src=@item.IconLink class="img" data-bs-toggle="tooltip" data-bs-placement="top" title=@item.EngName>
@@ -95,11 +99,11 @@
                             </tr>
                             <tr>
                                 <th scope="col">Level required</th>
-                                <td>@d.LvRequired</td>
+                                <td width="50%">@d.LvRequired</td>
                             </tr>
                             <tr>
                                 <th scope="col">Digimon required</th>
-                                <td>
+                                <td width="50%">
                                     @foreach (var item in d.DRequired)
                                     {
                                         <img src=@item.IconLink class="img" data-bs-toggle="tooltip" data-bs-placement="top" title=@item.RequiredD.ToNameLine()>
@@ -108,7 +112,7 @@
                             </tr>
                             <tr>
                                 <th scope="col">Ride</th>
-                                <td>
+                                <td width="50%">
                                     @foreach (var item in d.RideItems)
                                     {
                                         <img src=@item.IconLink class="img" data-bs-toggle="tooltip" data-bs-placement="top" title=@item.EngName>

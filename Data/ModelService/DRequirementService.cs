@@ -36,6 +36,7 @@ namespace DigitalNetWeb.Data.ModelService
                         if (di != null)
                         {
                             d.RequiredD = di;
+                            d.IconLink = di.IconLink;
                         }
                     }
 

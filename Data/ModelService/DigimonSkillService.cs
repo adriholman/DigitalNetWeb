@@ -16,7 +16,7 @@ namespace DigitalNetWeb.Data.ModelService
             {
                 dataSQL = new DBConnection();
             }
-            List<DigimonSkill> skills = new List<DigimonSkill>();
+            ddb.Clear();
             string query = "SELECT ds.id, ds.name, ds.[icon name], ds.digimon, ds.[evolution tree], e.name as [element], ds.cd, ds.ds, ds.sp, ds.lv, ds.[lv0 dmg], ds.[lv25 dmg], ds.skill_increase, ds.description, ds.position, ds.skill_buff, ds.skill_buff_name FROM digimon_skills as ds LEFT JOIN elements as e on ds.element = e.id";
             query += " WHERE ds.digimon_id=" + digimon + " ORDER BY position";
             dataSQL.pullSQL(query);
@@ -46,9 +46,9 @@ namespace DigitalNetWeb.Data.ModelService
                 if (row.IsNull("skill_buff")) { } else { ds.Effect = (String?)row.Field<Object>("skill_buff"); }
                 if (row.IsNull("skill_buff_name")) { } else { ds.EffectName = (String?)row.Field<Object>("skill_buff_name"); }
                 if (row.IsNull("position")) { } else { ds.position = (int)row.Field<long>("position"); }
-                skills.Add(ds);
+                ddb.Add(ds);
             }
-            return skills;
+            return ddb;
         }
     }
 }

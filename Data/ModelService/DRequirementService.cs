@@ -28,7 +28,6 @@ namespace DigitalNetWeb.Data.ModelService
                     d.Code = (int)row.Field<long>("id");
                     d.EngName = (String?)row.Field<Object>("dub_Name");
                     d.Required = (String?)row.Field<Object>("required");
-                    d.IconLink = "/images/DigimonIcons/" + d.Required + ".png";
                     DigimonLine dl = new DigimonLineService().getDigimonLine(d.Required, d.EngName);
                     if (dl != null)
                     {

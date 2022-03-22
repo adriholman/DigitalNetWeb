@@ -76,7 +76,7 @@ namespace DigitalNetWeb.Data.ModelService
                 d.Code = (int)row.Field<long>("id");
                 if (row.IsNull("korean_name")) { d.KorName = ""; } else { d.KorName = (String?)row.Field<string>("korean_name"); }
                 if (row.IsNull("dub_name")) { d.EngName = ""; } else { d.EngName = (String?)row.Field<Object>("dub_name"); }
-                if (row.IsNull("icon_name") || !File.Exists(Path.GetFullPath("wwwroot") + "/images/DigimonIcons/" + (String?)row.Field<Object>("icon_name") + ".png")) { 
+                /*if (row.IsNull("icon_name") || !File.Exists(Path.GetFullPath("wwwroot") + "/images/DigimonIcons/" + (String?)row.Field<Object>("icon_name") + ".png")) { 
                     d.IconLink = "/images/Kuramon.png"; 
                 } else { 
                     d.IconLink = "/images/DigimonIcons/" + (String?)row.Field<Object>("icon_name") + ".png";
@@ -85,6 +85,16 @@ namespace DigitalNetWeb.Data.ModelService
                     d.ModelLink = "/images/Tsumemon_404_Not_Found.png";
                 } else { 
                     d.ModelLink = "/images/DigimonModels/" + (String?)row.Field<Object>("model_name") + ".png"; 
+                }*/                
+                if (row.IsNull("icon_link")) { 
+                    
+                } else { 
+                    d.IconLink = (String?)row.Field<Object>("icon_link");
+                }
+                if (row.IsNull("model_link")) { 
+                    
+                } else { 
+                    d.ModelLink = (String?)row.Field<Object>("model_link"); 
                 }
                 if (row.IsNull("evolution_tree")) { d.DigimonLine = ""; } else { d.DigimonLine = (String?)row.Field<Object>("evolution_tree"); }
                 if (row.IsNull("stage")) { d.StageIcon = ""; } else { d.StageIcon = "/images/Stages/" + (String?)row.Field<Object>("stage") + ".png"; }

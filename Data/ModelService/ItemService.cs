@@ -69,6 +69,13 @@ namespace DigitalNetWeb.Data.ModelService
                 } else { 
                     i.IconLink = "/images/ItemIcons/" + (String?)row.Field<Object>("icon_name") + ".png"; 
                 }
+                /*
+                if (row.IsNull("icon_link")) { 
+                    
+                } else { 
+                    i.IconLink = (String?)row.Field<Object>("icon_link");
+                }
+                */
                 if (row.IsNull("quantity")) { i.quantity = ""; } else { i.quantity = row.Field<long>("quantity").ToString(); }
                 if (row.IsNull("description")) { i.Description = ""; } else { i.Description = (String?)row.Field<Object>("description"); }
                 s.Add(i);
